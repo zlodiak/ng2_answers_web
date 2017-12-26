@@ -6,6 +6,21 @@
 		color: #fff;
 		height: 60px;
 		overflow: hidden;
+
+		.nav{
+			float: left;
+
+			.link{
+
+				&.active{
+					color: red;
+				}
+			}
+		}
+
+		.auth{
+			float: right;
+		}
 	}
 
 	.main{

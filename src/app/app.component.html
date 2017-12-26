@@ -1,6 +1,15 @@
 <div class="wrap">
   <header class="header">
-    hhh
+    <nav class="nav">
+      <a class="link" [routerLink]="'/questions'" routerLinkActive="active">Вопросы</a>
+      <a class="link" [routerLink]="'/tags'" routerLinkActive="active">Теги</a>
+      <a class="link" [routerLink]="'/users'" routerLinkActive="active">Участники</a>
+    </nav>
+
+    <div class="auth">
+      <a class="link" [routerLink]="'/login'">Войти</a>
+      <a class="link" [routerLink]="'/registration'">Зарегистрироваться</a>
+    </div>
   </header>
 
   <main class="main">
@@ -8,7 +17,7 @@
   </main>
 
   <footer class="footer">
-    fff
+    footer
   </footer>
 </div>
 
