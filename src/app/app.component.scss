@@ -1,14 +1,20 @@
+@import "~vars.scss";
+
 .wrap{
 	height: 100vh;
 
 	.header{
 		background: #000;
 		color: #fff;
-		height: 60px;
+		height: 28px;
+		padding: $basic-measure;
 		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
 
 		.nav{
-			float: left;
 
 			.link{
 
@@ -19,19 +25,25 @@
 		}
 
 		.auth{
-			float: right;
+
 		}
 	}
 
 	.main{
+		padding: $basic-measure;
 		overflow: hidden;
-		height: calc(100% - 120px);
+		height: calc(100% - 152px);
 	}
 
 	.footer{
 		background: #000;
 		color: #fff;
-		height: 60px;
+		height: 28px;
 		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: center;
+		padding: $basic-measure;
 	}	
 }
