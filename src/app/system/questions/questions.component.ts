@@ -13,7 +13,7 @@ export class QuestionsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       if(params['authNow']) {
-        alert('welcome');
+        console.log('welcome');
       }
     });
   }

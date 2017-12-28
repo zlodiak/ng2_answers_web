@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material';
+
 import { AppRoutingModule } from './app-routing.module';
 import { SystemModule } from './system/system.module';
 import { AuthModule } from './auth/auth.module';
@@ -17,6 +20,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
+    MatButtonModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AuthModule,
     SystemModule,
