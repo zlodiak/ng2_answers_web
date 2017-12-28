@@ -13,10 +13,10 @@ export class HashService {
     return Md5.hashStr(str);
   }
 
-  compare(str1, str2): boolean{
+  /*compare(str1, str2): boolean{
     const hashStr1 = Md5.hashStr(str1);
     const hashStr2 = Md5.hashStr(str2);
     return hashStr1 === hashStr2;
-  }
+  }*/
 
 }

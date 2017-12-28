@@ -6,10 +6,11 @@ import { SystemModule } from './system/system.module';
 import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
+import { HashService } from './shared/services/hash.service';
 
 
 @NgModule({
-  declarations: [  
+  declarations: [
     AppComponent
   ],
   imports: [
@@ -18,7 +19,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HashService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
