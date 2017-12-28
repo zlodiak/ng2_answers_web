@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { HashService } from '../shared/services/hash.service';
 
-import {AuthComponent } from './auth.component';
+import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 
@@ -22,7 +23,7 @@ import { RegistrationComponent } from './registration/registration.component';
 		AuthComponent
 	],
 	providers: [
-
+		HashService
 	]
 })
 export class AuthModule{}
