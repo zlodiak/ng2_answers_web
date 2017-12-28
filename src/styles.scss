@@ -16,4 +16,8 @@ body{
 	&.active{
 		background: $accent-color;
 	}
+
+	&:disabled{
+		background: $unactive-color;
+	}
 }

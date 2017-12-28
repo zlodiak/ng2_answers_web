@@ -34,7 +34,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   private onSubmit(): void {
-    console.log(this.form);
+    //console.log(this.form);
 
     const user: User = {
       id: this.form.value.email,
@@ -42,7 +42,7 @@ export class RegistrationComponent implements OnInit {
       name: this.form.value.name
     };
 
-    console.log(user);
+    //console.log(user);
 
     this.usersService.createUser(user).subscribe((resp) => {
       console.log(resp);

@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material';
+import {  MatButtonModule,
+          MatDialogModule} from '@angular/material';
+
+import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component';
 
 @NgModule({
-  imports: [
-    MatButtonModule
-  ],
   exports: [
+    MatDialogModule,
     MatButtonModule
   ],
-  declarations: []
+  declarations: [
+    InfoDialogComponent
+  ],
+  entryComponents: [
+    InfoDialogComponent
+  ]
 })
 export class SharedModule { }

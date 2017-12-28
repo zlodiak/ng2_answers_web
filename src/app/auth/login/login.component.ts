@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { UsersService } from '../../shared/services/users.service';
+import { GlobalVarsService } from '../../shared/services/global-vars.service';
+
 
 @Component({
   selector: 'aw-login',
@@ -10,7 +15,9 @@ export class LoginComponent implements OnInit {
 
   private form: FormGroup;
 
-  constructor() { }
+  constructor(private usersService: UsersService,
+              private globalVarsService: GlobalVarsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -20,7 +27,27 @@ export class LoginComponent implements OnInit {
   }
 
   private onSubmit(): void {
+    // console.log(this.form);
 
+    this.usersService.isValidPassword(this.form.value.email, this.form.value.password).then((resp) => {
+      if(resp) {
+        const user = {
+          id: this.form.value.email,
+          password: '*',
+          name: this.form.value.name,
+        };
+
+        this.globalVarsService.setVar('authorizedUser', user);
+
+        this.router.navigate(['/questions'], {queryParams: {
+          authNow: true,
+          authId: user.id,
+          authName: user.name
+        }});
+      } else {
+        console.log('auth is failed');
+      }
+    });
   }
 
 }

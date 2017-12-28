@@ -19,7 +19,9 @@
   </div>
 
   <div class="line">
-    <button class="submit" id="submit" type="submit" [disabled]="form.invalid">зарегистрироваться</button>
+    <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
+      Зарегистрироваться
+    </button>
   </div>
 
   <p>или</p>
@@ -29,6 +31,3 @@
   </div>
 </form>
 
-<button class="btn btn-common" type="button" mat-button>
-  Регистрация
-</button>
