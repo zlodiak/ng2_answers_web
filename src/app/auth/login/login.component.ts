@@ -31,19 +31,14 @@ export class LoginComponent implements OnInit {
 
     this.usersService.isValidPassword(this.form.value.email, this.form.value.password).then((resp) => {
       if(resp) {
-        const user = {
-          id: this.form.value.email,
-          password: '*',
-          name: this.form.value.name,
-        };
-
-        this.globalVarsService.setVar('authorizedUser', user);
-
-        this.router.navigate(['/questions'], {queryParams: {
-          authNow: true,
-          authId: user.id,
-          authName: user.name
-        }});
+        this.usersService.getUserById(this.form.value.email).subscribe((user) => {
+          this.globalVarsService.setVar('authorizedUser', user);
+          this.router.navigate(['/questions'], {queryParams: {
+            authNow: true,
+            authId: user.id,
+            authName: user.name
+          }});
+        });
       } else {
         console.log('auth is failed');
       }

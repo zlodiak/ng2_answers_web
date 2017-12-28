@@ -7,8 +7,14 @@
     </nav>
 
     <div class="auth">
-      <a class="link" [routerLink]="'/login'">Войти</a>
-      <a class="link" [routerLink]="'/registration'">Зарегистрироваться</a>
+      <div class="authorized" *ngIf="authorizedUserId">
+        {{ authorizedUserName }}
+      </div>
+
+      <div class="unauthorized" *ngIf="!authorizedUserId">
+        <a class="link" [routerLink]="'/login'">Войти</a>
+        <a class="link" [routerLink]="'/registration'">Зарегистрироваться</a>
+      </div>
     </div>
   </header>
 
@@ -18,10 +24,6 @@
 
   <footer class="footer">
     © Sergey Kalinin 2018
-
-    <button class="btn btn-common" type="button" mat-button>
-      qwertt
-    </button>
   </footer>
 </div>
 

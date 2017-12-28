@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
+import { User } from '../interfaces/user';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/map';
 
@@ -19,7 +20,7 @@ export class GlobalVarsService {
     this.globalVars[key] = value;
   }
 
-  getAuthorizedUser(): Observable<any> {
+  getAuthorizedUser(): Observable<User> {
     return Observable.interval(1000).map(() => {
       return this.globalVars['authorizedUser'];
     });
