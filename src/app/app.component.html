@@ -8,7 +8,13 @@
 
     <div class="auth">
       <div class="authorized" *ngIf="authorizedUserId">
-        {{ authorizedUserName }}
+        <div class="drop-menu" awDropMenu>
+          <div class="title">{{ authorizedUserName }}</div>
+          <div class="drop-area">
+            <div class="link">Профиль</div>
+            <div class="link">Выйти</div>
+          </div>
+        </div>
       </div>
 
       <div class="unauthorized" *ngIf="!authorizedUserId">

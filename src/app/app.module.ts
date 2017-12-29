@@ -11,11 +11,14 @@ import { SharedModule } from './shared/shared.module';
 import { GlobalVarsService } from './shared/services/global-vars.service';
 import { UsersService } from './shared/services/users.service';
 
+import { DropMenuDirective } from './directives/drop-menu.directive';
+
 import { AppComponent } from './app.component';
 
 
 @NgModule({
   declarations: [
+    DropMenuDirective,
     AppComponent
   ],
   imports: [
