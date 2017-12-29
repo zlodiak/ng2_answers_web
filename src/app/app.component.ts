@@ -26,4 +26,8 @@ export class AppComponent implements OnInit{
     );
   }
 
+  private logout(): void{
+    this.globalVarsService.setVar('authorizedUser', undefined);
+  }
+
 }
