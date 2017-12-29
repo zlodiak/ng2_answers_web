@@ -21,7 +21,7 @@ export class GlobalVarsService {
   }
 
   getAuthorizedUser(): Observable<User> {
-    return Observable.interval(1000).map(() => {
+    return Observable.timer(0, 3000).map(() => {
       return this.globalVars['authorizedUser'];
     });
   }
