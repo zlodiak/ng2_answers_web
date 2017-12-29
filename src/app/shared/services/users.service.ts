@@ -19,9 +19,9 @@ export class UsersService {
     return this.httpClient.post('http://localhost:3000/users', user);
   }
 
-  getUserById(id: string): Observable<User> {
+  getUserById(id: string): Observable<any> {
     console.log(id);
-    return this.httpClient.get(`http://localhost:3000/users?id=${id}`).map((users: User) => {
+    return this.httpClient.get(`http://localhost:3000/users?id=${id}`).map((users: User[]) => {
       // console.log(users[0]);
       return users[0] ? users[0] : undefined;
     });
