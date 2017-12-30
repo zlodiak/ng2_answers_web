@@ -1,3 +1,24 @@
-<p>
-  question-create works!
-</p>
+<h2 class="h2">Создание вопроса</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="line">
+    <input class="title" id="title" placeholder="Заголовок вопроса" type="text" formControlName="title">
+  </div>
+
+  <div class="line">
+    <textarea class="question" name="question" id="question" placeholder="Текст вопроса" formControlName="question" cols="30" rows="10"></textarea>
+  </div>
+
+  <!--<div class="line">
+    <div class="tags">
+      <span class="title">Метки: </span>
+      <span class="tag"></span>
+    </div>
+    <input class="tag" id="tag" placeholder="Введите тег и нажмите enter" type="text" formControlName="tag">
+  </div>-->
+
+  <div class="line">
+    <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
+      Отправить
+    </button>
+  </div>

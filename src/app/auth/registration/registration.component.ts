@@ -23,8 +23,6 @@ export class RegistrationComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    const this_ = this;
-
     this.form = new FormGroup({
       'email':      new FormControl('', [Validators.required, Validators.email], this.forbiddenEmail.bind(this)),
       'password':   new FormControl('', [Validators.required, Validators.minLength(6)]),

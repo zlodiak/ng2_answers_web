@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SystemRoutingModule } from './system-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { SystemComponent } from './system.component';
 import { QuestionsComponent } from './questions/questions/questions.component';
@@ -13,10 +14,12 @@ import { TagQuestionsComponent } from './tags/tag-questions/tag-questions.compon
 import { UsersComponent } from './users/users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { QuestionsService } from './shared/services/questions.service';
 
 
 @NgModule({
 	imports: [
+		SharedModule,
 		CommonModule,
 		SystemRoutingModule
 	],
@@ -33,7 +36,7 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 		UserEditComponent
 	],
 	providers: [
-
+		QuestionsService
 	]
 })
 export class SystemModule{}

@@ -17,7 +17,7 @@ const routes: Routes = [
 	{path: 'questions', component: QuestionsComponent},
 	{path: 'question-create', component: QuestionCreateComponent},
 	{path: 'question-edit', component: QuestionEditComponent},
-	{path: 'question', component: QuestionComponent},
+	{path: 'question/:id', component: QuestionComponent},
 	{path: 'questions', component: TagsComponent},
 	{path: 'tags', component: QuestionsComponent},
 	{path: 'tag-questions', component: TagQuestionsComponent},
