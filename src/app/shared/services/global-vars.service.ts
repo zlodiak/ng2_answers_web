@@ -20,6 +20,10 @@ export class GlobalVarsService {
     this.globalVars[key] = value;
   }
 
+  getAuthorizedUser_(): User {
+    return this.globalVars['authorizedUser'];
+  }
+
   getAuthorizedUser(): Observable<User> {
     return Observable.timer(0, 3000).map(() => {
       return this.globalVars['authorizedUser'];

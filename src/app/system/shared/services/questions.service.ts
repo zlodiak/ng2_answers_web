@@ -10,8 +10,7 @@ export class QuestionsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createQuestion(question: Question): Observable<any> {
-    console.log(111);
+  createQuestion(question: Question): Observable<Question> {
     return this.httpClient.post('http://localhost:3000/questions', question);
   }
 
