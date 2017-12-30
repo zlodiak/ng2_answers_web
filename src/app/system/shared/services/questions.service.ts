@@ -10,7 +10,10 @@ export class QuestionsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createQuestion(question: Question): Observable<Question> {
+  getQuestion(id: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:3000/questions/${id}`);
+  }
+  createQuestion(question: Question): Observable<any> {
     return this.httpClient.post('http://localhost:3000/questions', question);
   }
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { UsersService } from '../../shared/services/users.service';
 import { GlobalVarsService } from '../../shared/services/global-vars.service';
@@ -11,9 +12,10 @@ import { GlobalVarsService } from '../../shared/services/global-vars.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   private form: FormGroup;
+  private subGetUserById;
 
   constructor(private usersService: UsersService,
               private globalVarsService: GlobalVarsService,
@@ -26,12 +28,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.subGetUserById.unsubscribe();
+  }
+
   private onSubmit(): void {
     // console.log(this.form);
 
     this.usersService.isValidPassword(this.form.value.email, this.form.value.password).then((resp) => {
       if(resp) {
-        this.usersService.getUserById(this.form.value.email).subscribe((user) => {
+        this.subGetUserById = this.usersService.getUserById(this.form.value.email).subscribe((user) => {
           this.globalVarsService.setVar('authorizedUser', user);
           this.router.navigate(['/questions'], {queryParams: {
             authNow: true,

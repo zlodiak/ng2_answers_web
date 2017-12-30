@@ -1,5 +1,5 @@
 export interface Question {
-  id: number;
+  id?: number;
   author: string;
   isDecided: boolean;
   isDeleted: boolean;

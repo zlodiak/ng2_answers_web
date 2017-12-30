@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { User } from '../../shared/interfaces/user';
 import { HashService } from '../../shared/services/hash.service';
@@ -13,9 +14,10 @@ import { UsersService } from '../../shared/services/users.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent implements OnInit, OnDestroy {
 
   private form: FormGroup;
+  private subCreateUser: Subscription;
 
   constructor(private hashService: HashService,
               private globalVarsService: GlobalVarsService,
@@ -31,6 +33,10 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.subCreateUser.unsubscribe();
+  }
+
   private onSubmit(): void {
     //console.log(this.form);
 
@@ -42,7 +48,7 @@ export class RegistrationComponent implements OnInit {
 
     //console.log(user);
 
-    this.usersService.createUser(user).subscribe((resp) => {
+    this.subCreateUser = this.usersService.createUser(user).subscribe((resp) => {
       console.log(resp);
       this.router.navigate(['/questions'], {queryParams: {
         authNow: true,

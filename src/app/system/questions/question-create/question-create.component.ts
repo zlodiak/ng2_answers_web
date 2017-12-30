@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Question } from '../../shared/interfaces/question';
 import { QuestionsService } from '../../shared/services/questions.service';
@@ -12,9 +13,10 @@ import { GlobalVarsService } from '../../../shared/services/global-vars.service'
   templateUrl: './question-create.component.html',
   styleUrls: ['./question-create.component.scss']
 })
-export class QuestionCreateComponent implements OnInit {
+export class QuestionCreateComponent implements OnInit, OnDestroy {
 
   private form: FormGroup;
+  private subCreateQuestion: Subscription;
 
   constructor(private questionsService: QuestionsService,
               private router: Router,
@@ -25,6 +27,10 @@ export class QuestionCreateComponent implements OnInit {
       'title':      new FormControl('', [Validators.required, Validators.minLength(1)]),
       'question':   new FormControl('', [Validators.required, Validators.minLength(3)])
     });
+  }
+
+  ngOnDestroy() {
+    this.subCreateQuestion.unsubscribe();
   }
 
   private onSubmit(): void {
@@ -45,7 +51,7 @@ export class QuestionCreateComponent implements OnInit {
       createdDateUnix: '' + Date.now()
     };
 
-    this.questionsService.createQuestion(question).subscribe((resp) => {
+    this.subCreateQuestion = this.questionsService.createQuestion(question).subscribe((resp) => {
       this.router.navigate(['/question/' + resp.id], {queryParams: {
         questionCreateNow: true
       }});
