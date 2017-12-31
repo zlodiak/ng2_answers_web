@@ -41,7 +41,7 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
 
     // id is autoincrement
     const answer: Answer = {
-      createdDateUnix: '' + Date.now()
+      createdDateUnix: '' + Date.now(),
       author: authorizedUser.id,
       body: this.form.value.answer,
       ratingPlus: [],
@@ -53,6 +53,7 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
       this.router.navigate(['/question/' + resp.id], {queryParams: {
         questionCreateNow: true
       }});
+      this.form.patchValue({answer: ''});
     });
   }
 
