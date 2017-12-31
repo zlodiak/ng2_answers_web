@@ -65,7 +65,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
   private onSubmit(): void {
     const tagsIds: number[] = [];
     const newTags: string[] = [];
-    const storagedTags: string[] = [];
+    const storagedTagsIds: number[] = [];
 
     this.tagsService.getTags().subscribe((tags) => {
       this.tags.forEach((newTag) => {
@@ -74,7 +74,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
         tags.forEach((oldTagObj) => {
           if(oldTagObj.title === newTag) {
             isExist = true;
-            storagedTags.push(oldTagObj.id);
+            storagedTagsIds.push(oldTagObj.id);
           }
         });
 
@@ -89,15 +89,17 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
       });
 
       setTimeout(() => {
-        const allTagsIds = tagsIds.concat(storagedTags);
-        // console.log(tagsIds, storagedTags, allTagsIds);
+        const allTagsIds = tagsIds.concat(storagedTagsIds);
+        // console.log(tagsIds, storagedTagsIds, allTagsIds);
         this.createQuestion(allTagsIds);
-      }, 1000);
+      }, 2000);
 
     });
   }
 
   private addTag(event, tag): void {
+    event.preventDefault();
+
     if(!tag.trim().length) { return; }
 
     this.form.patchValue({tag: ''});
