@@ -33,16 +33,12 @@
       "author": "admin@ad.ad",
       "isDecided": false,
       "isDeleted": false,
-      "tags": [
-        2,
-        3,
-        1
-      ],
-      "title": "q",
-      "body": "qqq",
+      "tags": [],
+      "title": "11",
+      "body": "11111",
       "ratingPlus": [],
       "ratingMinus": [],
-      "createdDateUnix": "1514726198165",
+      "createdDateUnix": "1514737230459",
       "id": 1
     },
     {
@@ -50,40 +46,12 @@
       "isDecided": false,
       "isDeleted": false,
       "tags": [],
-      "title": "ffff",
-      "body": "fffff",
+      "title": "222",
+      "body": "222",
       "ratingPlus": [],
       "ratingMinus": [],
-      "createdDateUnix": "1514730400432",
+      "createdDateUnix": "1514737317737",
       "id": 2
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "ffff",
-      "body": "fffff",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514730400551",
-      "id": 3
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [
-        4,
-        5,
-        6
-      ],
-      "title": "1111",
-      "body": "1111",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514732190073",
-      "id": 4
     }
   ],
   "tags": [
@@ -94,26 +62,17 @@
     {
       "id": 1,
       "title": "js"
-    },
+    }
+  ],
+  "answers": [
     {
-      "title": "q",
-      "id": 2
-    },
-    {
-      "title": "aa",
-      "id": 3
-    },
-    {
-      "title": "d",
-      "id": 4
-    },
-    {
-      "title": "dd",
-      "id": 5
-    },
-    {
-      "title": "ddd",
-      "id": 6
+      "createdDateUnix": "1514737324195",
+      "author": "admin@ad.ad",
+      "body": "2w2w2w2",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "isSolution": false,
+      "id": 1
     }
   ]
 }

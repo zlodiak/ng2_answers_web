@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { QuestionsService } from './shared/services/questions.service';
 import { TagsService } from './shared/services/tags.service';
+import { AnswersService } from './shared/services/answers.service';
 
 import { SystemComponent } from './system.component';
 import { QuestionsComponent } from './questions/questions/questions.component';
@@ -44,6 +45,7 @@ import { AnswerFormComponent } from './questions/question/answer-form/answer-for
 		AnswerFormComponent
 	],
 	providers: [
+    AnswersService,
     TagsService,
 		QuestionsService
 	]

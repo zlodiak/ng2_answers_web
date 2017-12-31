@@ -1,3 +1,13 @@
-<p>
-  answer-form works!
-</p>
+<h2 class="h2">Ваш ответ</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="line">
+    <textarea class="answer" name="answer" id="answer" placeholder="Текст ответа" formControlName="answer" cols="30" rows="10"></textarea>
+  </div>
+
+  <div class="line">
+    <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
+      Отправить
+    </button>
+  </div>
+</form>

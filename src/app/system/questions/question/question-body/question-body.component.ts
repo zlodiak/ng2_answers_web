@@ -43,14 +43,12 @@ export class QuestionBodyComponent implements OnInit, OnDestroy {
       this.question = question;
       this.getAuthor(question.author);
       this.creationDateHuman = this.dateService.fromUnixToHuman(this.question.createdDateUnix);
-      console.log(this.creationDateHuman);
     });
   }
 
   private getAuthor(authorId): void {
     this.subAuthor = this.usersService.getUserById(authorId).subscribe((user: User) => {
       this.questionAuthor = user.name;
-      console.log(this.questionAuthor);
     });
   }
 
