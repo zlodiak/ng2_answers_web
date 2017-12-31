@@ -1,0 +1,14 @@
+<div class="wrap">
+  <div class="left">
+    a
+  </div>
+
+  <div class="right">
+    <h2 class="h2" [innerHTML]="question?.title || ''"></h2>
+
+    <div class="text" [innerHTML]="question?.body || ''"></div>
+
+    <div class="text" [innerHTML]="creationDateHuman || ''"></div>
+    <div class="author" [innerHTML]="questionAuthor || ''"></div>
+  </div>
+</div>

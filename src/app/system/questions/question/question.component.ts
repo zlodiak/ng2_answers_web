@@ -2,12 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { UsersService } from '../../../shared/services/users.service';
-import { QuestionsService } from '../../shared/services/questions.service';
-import { DateService } from '../../../shared/services/date.service';
-
-import { Question } from '../../shared/interfaces/question';
-import { User } from '../../../shared/interfaces/user';
 
 @Component({
   selector: 'aw-question',
@@ -16,26 +10,17 @@ import { User } from '../../../shared/interfaces/user';
 })
 export class QuestionComponent implements OnInit, OnDestroy {
 
-  private questionAuthor: string;
   private questionCreateNow: boolean;
   private questionId: number;
-  private creationDateHuman: string;
 
-  private subQuestion: Subscription;
   private subQuestionId: Subscription;
   private subQuestionCreateNow: Subscription;
-  private subAuthor: Subscription;
-  private question: Question;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private questionsService: QuestionsService,
-              private usersService: UsersService,
-              private dateService: DateService) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.subQuestionId = this.subQuestionId = this.activatedRoute.params.subscribe(params => {
       this.questionId = +params['id'];
-      this.getQuestion(this.questionId);
     });
 
     this.subQuestionCreateNow = this.activatedRoute.queryParams.subscribe(params => {
@@ -46,22 +31,6 @@ export class QuestionComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if(this.subQuestionId) { this.subQuestionId.unsubscribe(); }
     if(this.subQuestionCreateNow) { this.subQuestionCreateNow.unsubscribe(); }
-    if(this.subAuthor) { this.subAuthor.unsubscribe(); }
-    if(this.subQuestion) { this.subQuestion.unsubscribe(); }
-  }
-
-  private getQuestion(id): void{
-    this.subQuestion = this.questionsService.getQuestion(id).subscribe((question) => {
-      this.question = question;
-      this.getAuthor(question.author);
-      this.creationDateHuman = this.dateService.fromUnixToHuman(this.question.createdDateUnix);
-    });
-  }
-
-  private getAuthor(authorId): void{
-    this.subAuthor = this.usersService.getUserById(authorId).subscribe((user: User) => {
-      this.questionAuthor = user.name;
-    });
   }
 
 }

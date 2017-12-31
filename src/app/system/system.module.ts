@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { SystemRoutingModule } from './system-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
+import { QuestionsService } from './shared/services/questions.service';
+import { TagsService } from './shared/services/tags.service';
+
 import { SystemComponent } from './system.component';
 import { QuestionsComponent } from './questions/questions/questions.component';
 import { QuestionCreateComponent } from './questions/question-create/question-create.component';
@@ -14,9 +17,9 @@ import { TagQuestionsComponent } from './tags/tag-questions/tag-questions.compon
 import { UsersComponent } from './users/users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
-
-import { QuestionsService } from './shared/services/questions.service';
-import { TagsService } from './shared/services/tags.service';
+import { QuestionBodyComponent } from './questions/question/question-body/question-body.component';
+import { AnswersListComponent } from './questions/question/answers-list/answers-list.component';
+import { AnswerFormComponent } from './questions/question/answer-form/answer-form.component';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { TagsService } from './shared/services/tags.service';
 		TagQuestionsComponent,
 		UsersComponent,
 		UserComponent,
-		UserEditComponent
+		UserEditComponent,
+		QuestionBodyComponent,
+		AnswersListComponent,
+		AnswerFormComponent
 	],
 	providers: [
     TagsService,

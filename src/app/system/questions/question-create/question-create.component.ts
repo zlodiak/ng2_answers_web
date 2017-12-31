@@ -18,6 +18,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
 
   private form: FormGroup;
   private subCreateQuestion: Subscription;
+  private subCreateTag: Subscription;
   private tags: string[] = [];
 
   constructor(private questionsService: QuestionsService,
@@ -35,6 +36,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if(this.subCreateQuestion) { this.subCreateQuestion.unsubscribe(); }
+    if(this.subCreateTag) { this.subCreateTag.unsubscribe(); }
   }
 
   private createQuestion(tagsIds: number[]): void {
@@ -83,7 +85,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
 
       newTags.forEach((tag) => {
         const tagObj = {title: tag};
-        this.tagsService.createTag(tagObj).subscribe((obj) => {
+        this.subCreateTag = this.tagsService.createTag(tagObj).subscribe((obj) => {
           tagsIds.push(obj.id);
         });
       });
@@ -98,8 +100,6 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
   }
 
   private addTag(tag, ev): void | boolean{
-    console.log(ev);
-
     if(!tag.trim().length) { return; }
 
     this.form.patchValue({tag: ''});
@@ -108,8 +108,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
       this.tags.push(tag.trim());
     }
 
-    if(ev.keyCode === 13) {
-      console.log(123); return false; }
+    if(ev.keyCode === 13) { return false; }
   }
 
   private deleteTag(tag): void {
