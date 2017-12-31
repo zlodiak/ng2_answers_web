@@ -5,6 +5,10 @@ import {  MatButtonModule,
 
 import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component';
 
+import { DateService } from './services/date.service';
+import { GlobalVarsService } from './services/global-vars.service';
+import { UsersService } from './services/users.service';
+
 @NgModule({
   exports: [
     ReactiveFormsModule,
@@ -16,6 +20,11 @@ import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component
   ],
   entryComponents: [
     InfoDialogComponent
+  ],
+  providers: [
+    UsersService,
+    GlobalVarsService,
+    DateService
   ]
 })
 export class SharedModule { }

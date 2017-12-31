@@ -9,16 +9,17 @@
     <textarea class="question" name="question" id="question" placeholder="Текст вопроса" formControlName="question" cols="30" rows="10"></textarea>
   </div>
 
-  <!--<div class="line">
+  <div class="line">
     <div class="tags">
-      <span class="title">Метки: </span>
-      <span class="tag"></span>
+      <span class="title">Метки</span>
+      <span class="tag" *ngFor="let tag of tags">{{ tag }} <span class="delete" (click)="deleteTag(tag)">X</span></span>
     </div>
-    <input class="tag" id="tag" placeholder="Введите тег и нажмите enter" type="text" formControlName="tag">
-  </div>-->
+    <input class="tag" id="tag" placeholder="Введите тег и нажмите enter" type="text" formControlName="tag" #tag (keyup.enter)="addTag($event, tag.value)">
+  </div>
 
   <div class="line">
     <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
       Отправить
     </button>
   </div>
+</form>

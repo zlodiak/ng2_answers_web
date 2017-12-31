@@ -1,0 +1,31 @@
+@import "~vars.scss";
+
+.line{
+
+  .tags{
+
+    .title{
+      font-weight: bold;
+
+      &:after{
+        content: ': ';
+      }
+    }
+
+    .tag{
+
+      .delete{
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      &:after{
+        content: ', ';
+      }
+
+      &:last-child:after{
+        content: '';
+      }
+    }
+  }
+}

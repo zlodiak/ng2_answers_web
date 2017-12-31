@@ -14,7 +14,9 @@ import { TagQuestionsComponent } from './tags/tag-questions/tag-questions.compon
 import { UsersComponent } from './users/users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
+
 import { QuestionsService } from './shared/services/questions.service';
+import { TagsService } from './shared/services/tags.service';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { QuestionsService } from './shared/services/questions.service';
 		UserEditComponent
 	],
 	providers: [
+    TagsService,
 		QuestionsService
 	]
 })

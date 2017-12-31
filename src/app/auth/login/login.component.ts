@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subGetUserById.unsubscribe();
+    if(this.subGetUserById) { this.subGetUserById.unsubscribe(); }
   }
 
   private onSubmit(): void {

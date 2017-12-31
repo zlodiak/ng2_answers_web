@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Question } from '../../shared/interfaces/question';
 import { QuestionsService } from '../../shared/services/questions.service';
 import { GlobalVarsService } from '../../../shared/services/global-vars.service';
+import { TagsService } from '../../shared/services/tags.service';
 
 
 @Component({
@@ -17,23 +18,26 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
 
   private form: FormGroup;
   private subCreateQuestion: Subscription;
+  private tags: string[] = [];
 
   constructor(private questionsService: QuestionsService,
               private router: Router,
-              private globalVarsService: GlobalVarsService) { }
+              private globalVarsService: GlobalVarsService,
+              private tagsService: TagsService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
       'title':      new FormControl('', [Validators.required, Validators.minLength(1)]),
-      'question':   new FormControl('', [Validators.required, Validators.minLength(3)])
+      'question':   new FormControl('', [Validators.required, Validators.minLength(3)]),
+      'tag':        new FormControl()
     });
   }
 
   ngOnDestroy() {
-    this.subCreateQuestion.unsubscribe();
+    if(this.subCreateQuestion) { this.subCreateQuestion.unsubscribe(); }
   }
 
-  private onSubmit(): void {
+  private createQuestion(tagsIds: number[]): void {
     const authorizedUser = this.globalVarsService.getAuthorizedUser_();
 
     if(!authorizedUser) { return; }
@@ -43,7 +47,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
       author: authorizedUser.id,
       isDecided: false,
       isDeleted: false,
-      tags: [],
+      tags: tagsIds,
       title: this.form.value.title,
       body: this.form.value.question,
       ratingPlus: [],
@@ -56,6 +60,52 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
         questionCreateNow: true
       }});
     });
+  }
+
+  private onSubmit(): void {
+    const tagsIds: number[] = [];
+    const newTags: string[] = [];
+
+    this.tagsService.getTags().subscribe((tags) => {
+      this.tags.forEach((newTag) => {
+        let isExist = false;
+
+        tags.forEach((oldTagObj) => {
+          if(oldTagObj.title === newTag) {
+            isExist = true;
+          }
+        });
+
+        if(!isExist) { newTags.push(newTag); }
+      });
+
+      newTags.forEach((tag) => {
+        const tagObj = {title: tag};
+        this.tagsService.createTag(tagObj).subscribe((obj) => {
+          tagsIds.push(obj.id);
+        });
+      });
+
+      setTimeout(() => {
+        console.log(tagsIds);
+        this.createQuestion(tagsIds);
+      }, 1000);
+
+    });
+  }
+
+  private addTag(event, tag): void {
+    if(!tag.trim().length) { return; }
+
+    this.form.patchValue({tag: ''});
+
+    if(this.tags.indexOf(tag) === -1) {
+      this.tags.push(tag.trim());
+    }
+  }
+
+  private deleteTag(tag): void {
+    this.tags = this.tags.filter(t => t != tag);
   }
 
 }

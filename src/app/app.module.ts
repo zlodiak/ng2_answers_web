@@ -8,9 +8,6 @@ import { SystemModule } from './system/system.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 
-import { GlobalVarsService } from './shared/services/global-vars.service';
-import { UsersService } from './shared/services/users.service';
-
 import { DropMenuDirective } from './directives/drop-menu.directive';
 
 import { AppComponent } from './app.component';
@@ -31,8 +28,6 @@ import { AppComponent } from './app.component';
     AppRoutingModule
   ],
   providers: [
-    GlobalVarsService,
-    UsersService
   ],
   bootstrap: [AppComponent]
 })

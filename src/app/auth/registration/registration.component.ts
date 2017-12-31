@@ -34,7 +34,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subCreateUser.unsubscribe();
+    if(this.subCreateUser) { this.subCreateUser.unsubscribe(); }
   }
 
   private onSubmit(): void {
