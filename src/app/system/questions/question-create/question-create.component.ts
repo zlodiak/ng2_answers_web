@@ -97,8 +97,8 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
     });
   }
 
-  private addTag(event, tag): void {
-    event.preventDefault();
+  private addTag(tag, ev): void | boolean{
+    console.log(ev);
 
     if(!tag.trim().length) { return; }
 
@@ -107,6 +107,9 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
     if(this.tags.indexOf(tag) === -1) {
       this.tags.push(tag.trim());
     }
+
+    if(ev.keyCode === 13) {
+      console.log(123); return false; }
   }
 
   private deleteTag(tag): void {

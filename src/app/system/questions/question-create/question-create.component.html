@@ -14,7 +14,7 @@
       <span class="title">Метки</span>
       <span class="tag" *ngFor="let tag of tags">{{ tag }} <span class="delete" (click)="deleteTag(tag)">X</span></span>
     </div>
-    <input class="tag" id="tag" placeholder="Введите тег и нажмите enter" type="text" formControlName="tag" #tag (change)="addTag($event, tag.value)">
+    <input class="tag" id="tag" placeholder="Введите тег и нажмите enter" type="text" formControlName="tag" #tag (keydown.enter)="addTag(tag.value, $event)">
   </div>
 
   <div class="line">
