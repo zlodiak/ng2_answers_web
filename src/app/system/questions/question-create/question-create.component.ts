@@ -65,6 +65,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
   private onSubmit(): void {
     const tagsIds: number[] = [];
     const newTags: string[] = [];
+    const storagedTags: string[] = [];
 
     this.tagsService.getTags().subscribe((tags) => {
       this.tags.forEach((newTag) => {
@@ -73,6 +74,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
         tags.forEach((oldTagObj) => {
           if(oldTagObj.title === newTag) {
             isExist = true;
+            storagedTags.push(oldTagObj.id);
           }
         });
 
@@ -87,8 +89,9 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
       });
 
       setTimeout(() => {
-        console.log(tagsIds);
-        this.createQuestion(tagsIds);
+        const allTagsIds = tagsIds.concat(storagedTags);
+        // console.log(tagsIds, storagedTags, allTagsIds);
+        this.createQuestion(allTagsIds);
       }, 1000);
 
     });
