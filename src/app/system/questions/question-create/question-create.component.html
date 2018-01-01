@@ -1,6 +1,6 @@
 <h2 class="h2">Создание вопроса</h2>
-
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+{{authorizedUser | json}}
+<form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="authorizedUser">
   <div class="line">
     <input class="title" id="title" placeholder="Заголовок вопроса" type="text" formControlName="title">
   </div>

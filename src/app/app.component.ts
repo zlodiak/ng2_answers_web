@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GlobalVarsService } from './shared/services/global-vars.service';
 import { User } from './shared/interfaces/user';
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit{
   private authorizedUserId: string | boolean;
   private authorizedUserName: string | boolean;
 
-  constructor(private globalVarsService: GlobalVarsService) {}
+  constructor(private globalVarsService: GlobalVarsService,
+              private router: Router) {}
 
   ngOnInit() {
     this.globalVarsService.getAuthorizedUser().subscribe(
@@ -28,6 +30,9 @@ export class AppComponent implements OnInit{
 
   private logout(): void{
     this.globalVarsService.setVar('authorizedUser', undefined);
+    this.router.navigate(['/questions'], {queryParams: {
+      logoutNow: true
+    }});
   }
 
 }

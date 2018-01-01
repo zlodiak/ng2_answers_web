@@ -3,138 +3,23 @@
     {
       "id": "admin@ad.ad",
       "password": "f6fdffe48c908deb0f4c3bd36c032e72",
-      "name": "dsffdsf"
+      "name": "admin"
     },
     {
       "id": "admin@ad.ad2",
       "password": "f6fdffe48c908deb0f4c3bd36c032e72",
-      "name": "22"
+      "name": "admin2"
     },
     {
       "id": "admin@ad.ad3",
       "password": "f6fdffe48c908deb0f4c3bd36c032e72",
-      "name": "33"
+      "name": "admin3"
     }
   ],
   "questions": [
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "111",
-      "body": "111",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514680992706",
-      "id": 0
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "11",
-      "body": "11111",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514737230459",
-      "id": 1
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "222",
-      "body": "222",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514737317737",
-      "id": 2
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "44",
-      "body": "4444",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514737471831",
-      "id": 3
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "55",
-      "body": "555",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514737582036",
-      "id": 4
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [
-        2,
-        3,
-        4,
-        5
-      ],
-      "title": "ttt",
-      "body": "tttt",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514771211399",
-      "id": 5
-    }
   ],
   "tags": [
-    {
-      "id": 0,
-      "title": "jquery"
-    },
-    {
-      "id": 1,
-      "title": "js"
-    }
   ],
   "answers": [
-    {
-      "createdDateUnix": "1514817080058",
-      "author": "admin@ad.ad",
-      "body": "99999",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "isSolution": false,
-      "questionId": 2,
-      "id": 4
-    },
-    {
-      "createdDateUnix": "1514817150887",
-      "author": "admin@ad.ad",
-      "body": "10",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "isSolution": false,
-      "questionId": 3,
-      "id": 5
-    },
-    {
-      "createdDateUnix": "1514819731762",
-      "author": "admin@ad.ad",
-      "body": "hjk",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "isSolution": false,
-      "questionId": 3,
-      "id": 6
-    }
   ]
 }

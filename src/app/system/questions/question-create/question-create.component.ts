@@ -7,6 +7,7 @@ import { Question } from '../../shared/interfaces/question';
 import { QuestionsService } from '../../shared/services/questions.service';
 import { GlobalVarsService } from '../../../shared/services/global-vars.service';
 import { TagsService } from '../../shared/services/tags.service';
+import { User } from '../../../shared/interfaces/user';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
   private subCreateQuestion: Subscription;
   private subCreateTag: Subscription;
   private tags: string[] = [];
+  private authorizedUser: User;
 
   constructor(private questionsService: QuestionsService,
               private router: Router,
@@ -32,6 +34,8 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
       'question':   new FormControl('', [Validators.required, Validators.minLength(3)]),
       'tag':        new FormControl()
     });
+
+    this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
   }
 
   ngOnDestroy() {
