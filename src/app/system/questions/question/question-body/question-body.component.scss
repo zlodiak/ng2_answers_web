@@ -17,6 +17,22 @@
     *{
       margin-top: 0;
     }
+
+    .tag{
+
+      .delete{
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      &:after{
+        content: ', ';
+      }
+
+      &:last-child:after{
+        content: '';
+      }
+    }
   }
 }
 

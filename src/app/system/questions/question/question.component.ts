@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
+import { GlobalVarsService } from '../../../shared/services/global-vars.service';
+import { User } from '../../../shared/interfaces/user';
+
 
 @Component({
   selector: 'aw-question',
@@ -12,13 +15,17 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   private questionCreateNow: boolean;
   private questionId: number;
+  private authorizedUser: User;
 
   private subQuestionId: Subscription;
   private subQuestionCreateNow: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private globalVarsService: GlobalVarsService) { }
 
   ngOnInit() {
+    this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
+
     this.subQuestionId = this.subQuestionId = this.activatedRoute.params.subscribe(params => {
       this.questionId = +params['id'];
     });

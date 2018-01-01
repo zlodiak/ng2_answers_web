@@ -8,6 +8,10 @@
 
     <div class="text" [innerHTML]="question?.body || ''"></div>
 
+    <div class="tags">
+      <span class="tag" *ngFor="let tagId of question?.tags" >{{ tagsObj[tagId] }}</span>
+    </div>
+
     <div class="text" [innerHTML]="creationDateHuman || ''"></div>
     <div class="author" [innerHTML]="questionAuthor || ''"></div>
   </div>

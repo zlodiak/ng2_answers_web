@@ -4,9 +4,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { UsersService } from '../../../../shared/services/users.service';
 import { QuestionsService } from '../../../shared/services/questions.service';
 import { DateService } from '../../../../shared/services/date.service';
+import { TagsService } from '../../../shared/services/tags.service';
 
 import { Question } from '../../../shared/interfaces/question';
 import { User } from '../../../../shared/interfaces/user';
+import { Tag } from '../../../shared/interfaces/tag';
 
 
 @Component({
@@ -18,16 +20,19 @@ export class QuestionBodyComponent implements OnInit, OnDestroy {
 
   private subAuthor: Subscription;
   private subQuestion: Subscription;
+  private subTags: Subscription;
 
   private question: Question;
   private creationDateHuman: string;
   private questionAuthor: string;
+  private tagsObj: Object = {};
 
   @Input() questionId: string;
 
   constructor(private questionsService: QuestionsService,
               private usersService: UsersService,
-              private dateService: DateService) { }
+              private dateService: DateService,
+              private tagsService: TagsService) { }
 
   ngOnInit() {
     this.getQuestion(this.questionId);
@@ -36,13 +41,23 @@ export class QuestionBodyComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if(this.subAuthor) { this.subAuthor.unsubscribe(); }
     if(this.subQuestion) { this.subQuestion.unsubscribe(); }
+    if(this.subTags) { this.subTags.unsubscribe(); }
   }
 
   private getQuestion(id): void {
     this.subQuestion = this.questionsService.getQuestion(id).subscribe((question) => {
       this.question = question;
       this.getAuthor(question.author);
+      this.getTags(question.tags);
       this.creationDateHuman = this.dateService.fromUnixToHuman(this.question.createdDateUnix);
+    });
+  }
+
+  private getTags(tagsIds): void {
+    this.subTags = this.tagsService.getTags().subscribe((tags: Tag[]) => {
+      tags.forEach((tagObj) => {
+        this.tagsObj[tagObj.id] = tagObj.title;
+      });
     });
   }
 
