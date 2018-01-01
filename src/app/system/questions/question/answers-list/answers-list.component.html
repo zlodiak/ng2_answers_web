@@ -1,9 +1,11 @@
-<div class="wrap answer-wrap">
+<div class="wrap answer-wrap" *ngFor="let a of answers">
   <div class="left">
     f
   </div>
 
   <div class="right">
-    g
+    {{ a.title }}
+    <br>
+    {{ a.body }}
   </div>
 </div>

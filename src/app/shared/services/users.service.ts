@@ -28,7 +28,6 @@ export class UsersService {
 
   isValidPassword(id, password): Promise<boolean>{
     const passwordHash = this.hashService.generate(password);
-    console.log(passwordHash);
 
     return new Promise((resolve, reject) => {
       this.getUserById(id).subscribe((user: User) => {

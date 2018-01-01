@@ -19,7 +19,6 @@ export class QuestionsService {
   }
 
   getQuestions(): Observable<any> {
-    console.log('serv');
     return this.httpClient.get(`http://localhost:3000/questions`);
   }
 

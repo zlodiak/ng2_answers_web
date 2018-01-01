@@ -10,6 +10,10 @@ export class AnswersService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getAnswersByQ(questionId: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:3000/answers?questionId=${questionId}`);
+  }
+
   getAnswerByQU(questionId: number, userId: string): Observable<any> {
     return this.httpClient.get(`http://localhost:3000/answers?questionId=${questionId}&author=${userId}`);
   }

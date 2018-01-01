@@ -21,6 +21,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   private subQuestionId: Subscription;
   private subQuestionCreateNow: Subscription;
+  private subGetAnswerByQU: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
               private globalVarsService: GlobalVarsService,
@@ -29,7 +30,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
 
-    this.subQuestionId = this.subQuestionId = this.activatedRoute.params.subscribe(params => {
+    this.subQuestionId = this.activatedRoute.params.subscribe(params => {
       this.questionId = +params['id'];
     });
 
@@ -43,15 +44,12 @@ export class QuestionComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if(this.subQuestionId) { this.subQuestionId.unsubscribe(); }
     if(this.subQuestionCreateNow) { this.subQuestionCreateNow.unsubscribe(); }
+    if(this.subGetAnswerByQU) { this.subGetAnswerByQU.unsubscribe(); }
   }
 
   private checkAnswered() {
-    console.log(this.questionId);
-    console.log(this.authorizedUser);
-
     if(this.authorizedUser) {
-      this.answersService.getAnswerByQU(this.questionId, this.authorizedUser.id).subscribe((answers) => {
-        console.log(answers.length);
+      this.subGetAnswerByQU = this.answersService.getAnswerByQU(this.questionId, this.authorizedUser.id).subscribe((answers) => {
         if(answers.length) {
           this.isAnswered = true;
         }
