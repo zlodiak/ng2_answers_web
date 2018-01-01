@@ -17,12 +17,15 @@ export class AnswersListComponent implements OnInit, OnDestroy {
   private answers: Answer[] = [];
 
   private subQuestionId: Subscription;
+  private getAnswersByQ: Subscription;
 
   constructor(private answersService: AnswersService,
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log('ngOnInit');
     this.subQuestionId = this.activatedRoute.params.subscribe(params => {
+      console.log('upd');
       this.questionId = +params['id'];
       this.getAnswers();
     });
@@ -30,11 +33,14 @@ export class AnswersListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if(this.subQuestionId) { this.subQuestionId.unsubscribe(); }
+    if(this.getAnswersByQ) { this.getAnswersByQ.unsubscribe(); }
   }
 
   private getAnswers(): void {
-    this.answersService.getAnswersByQ(this.questionId).subscribe((answers) => {
+    console.log('getAnswers');
+    this.getAnswersByQ = this.answersService.getAnswersByQ(this.questionId).subscribe((answers) => {
       this.answers = answers;
+      console.log(this.answers);
     });
   }
 

@@ -1,10 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Rx';
+
 
 import { GlobalVarsService } from '../../../shared/services/global-vars.service';
 import { User } from '../../../shared/interfaces/user';
 import { AnswersService } from '../../shared/services/answers.service';
+import { QuestionsService } from '../../shared/services/questions.service';
 
 
 @Component({
@@ -18,33 +21,45 @@ export class QuestionComponent implements OnInit, OnDestroy {
   private questionId: number;
   private authorizedUser: User;
   private isAnswered: boolean = false;
+  private isOwnQuestion: boolean = false;
 
-  private subQuestionId: Subscription;
-  private subQuestionCreateNow: Subscription;
+  private subParams: Subscription;
+  private subGetQuestion: Subscription;
   private subGetAnswerByQU: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
               private globalVarsService: GlobalVarsService,
-              private answersService: AnswersService) { }
+              private answersService: AnswersService,
+              private questionsService: QuestionsService) { }
 
   ngOnInit() {
     this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
 
-    this.subQuestionId = this.activatedRoute.params.subscribe(params => {
-      this.questionId = +params['id'];
+    this.subParams = Observable.combineLatest(
+      this.activatedRoute.params,
+      this.activatedRoute.queryParams
+    ).subscribe((data: [any, any]) => {
+      this.questionId = +data[0]['id'];
+      this.questionCreateNow = data[1]['questionCreateNow'];
+      this.checkAnswered();
+      this.checkOwnQuestion();
     });
-
-    this.subQuestionCreateNow = this.activatedRoute.queryParams.subscribe(params => {
-      this.questionCreateNow = params['questionCreateNow'];
-    });
-
-    this.checkAnswered();
   }
 
   ngOnDestroy() {
-    if(this.subQuestionId) { this.subQuestionId.unsubscribe(); }
-    if(this.subQuestionCreateNow) { this.subQuestionCreateNow.unsubscribe(); }
+    if(this.subParams) { this.subParams.unsubscribe(); }
+    if(this.subGetQuestion) { this.subGetQuestion.unsubscribe(); }
     if(this.subGetAnswerByQU) { this.subGetAnswerByQU.unsubscribe(); }
+  }
+
+  private checkOwnQuestion() {
+    if(this.authorizedUser) {
+      this.questionsService.getQuestion(this.questionId).subscribe((question) => {
+        if(question.author === this.authorizedUser.id) {
+          this.isOwnQuestion = true;
+        }
+      });
+    }
   }
 
   private checkAnswered() {
@@ -55,9 +70,6 @@ export class QuestionComponent implements OnInit, OnDestroy {
         }
       });
     }
-
-
-
   }
 
 }

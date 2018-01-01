@@ -2,4 +2,4 @@
 
 <aw-answers-list></aw-answers-list>
 
-<aw-answer-form [questionId]="questionId" *ngIf="authorizedUser && !isAnswered"></aw-answer-form>
+<aw-answer-form [questionId]="questionId" *ngIf="authorizedUser && !isAnswered && !isOwnQuestion"></aw-answer-form>

@@ -23,7 +23,6 @@ export class AppComponent implements OnInit{
       (user: User) => {
         this.authorizedUserId = user ? user.id : false;
         this.authorizedUserName = user ? user.name : false;
-        // console.log('authorizedUser', this.authorizedUserId, this.authorizedUserName);
       }
     );
   }

@@ -51,10 +51,17 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
     };
 
     this.subCreateAnswer = this.answersService.createAnswer(answer).subscribe((resp) => {
-      this.router.navigate(['/question/' + resp.id], {queryParams: {
+      this.router.navigate(['/question/' + +this.questionId], {queryParams: {
         questionCreateNow: true
       }});
+
       this.form.patchValue({answer: ''});
+
+      setTimeout(() => {
+        this.router.navigate(['/question/' + +this.questionId], {queryParams: {
+          questionUpdateNow: true
+        }});
+      }, 1000);
     });
   }
 
