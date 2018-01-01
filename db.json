@@ -93,46 +93,6 @@
       "ratingMinus": [],
       "createdDateUnix": "1514771211399",
       "id": 5
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [
-        6,
-        7,
-        8
-      ],
-      "title": "ggg",
-      "body": "gggg",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514771291564",
-      "id": 6
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "vxv",
-      "body": "vvv",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514772609013",
-      "id": 7
-    },
-    {
-      "author": "admin@ad.ad",
-      "isDecided": false,
-      "isDeleted": false,
-      "tags": [],
-      "title": "fg",
-      "body": "ggg",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "createdDateUnix": "1514772658389",
-      "id": 8
     }
   ],
   "tags": [
@@ -143,63 +103,38 @@
     {
       "id": 1,
       "title": "js"
-    },
-    {
-      "title": "df",
-      "id": 2
-    },
-    {
-      "title": "hh",
-      "id": 3
-    },
-    {
-      "title": "hhg",
-      "id": 4
-    },
-    {
-      "title": "rr",
-      "id": 5
-    },
-    {
-      "title": "gg",
-      "id": 6
-    },
-    {
-      "title": "gdg",
-      "id": 7
-    },
-    {
-      "title": "ret",
-      "id": 8
     }
   ],
   "answers": [
     {
-      "createdDateUnix": "1514737324195",
+      "createdDateUnix": "1514817080058",
       "author": "admin@ad.ad",
-      "body": "2w2w2w2",
+      "body": "99999",
       "ratingPlus": [],
       "ratingMinus": [],
       "isSolution": false,
-      "id": 1
+      "questionId": 2,
+      "id": 4
     },
     {
-      "createdDateUnix": "1514737473895",
+      "createdDateUnix": "1514817150887",
       "author": "admin@ad.ad",
-      "body": "444",
+      "body": "10",
       "ratingPlus": [],
       "ratingMinus": [],
       "isSolution": false,
-      "id": 2
+      "questionId": 3,
+      "id": 5
     },
     {
-      "createdDateUnix": "1514737584481",
+      "createdDateUnix": "1514819731762",
       "author": "admin@ad.ad",
-      "body": "5",
+      "body": "hjk",
       "ratingPlus": [],
       "ratingMinus": [],
       "isSolution": false,
-      "id": 3
+      "questionId": 3,
+      "id": 6
     }
   ]
 }

@@ -18,4 +18,9 @@ export class QuestionsService {
     return this.httpClient.post('http://localhost:3000/questions', question);
   }
 
+  getQuestions(): Observable<any> {
+    console.log('serv');
+    return this.httpClient.get(`http://localhost:3000/questions`);
+  }
+
 }

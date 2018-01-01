@@ -6,6 +6,7 @@ export interface Answer {
   ratingPlus: string[];
   ratingMinus: string[];
   isSolution: boolean;
+  questionId: number;
 }
 
 

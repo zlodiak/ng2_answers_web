@@ -46,7 +46,8 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
       body: this.form.value.answer,
       ratingPlus: [],
       ratingMinus: [],
-      isSolution: false
+      isSolution: false,
+      questionId: +this.questionId
     };
 
     this.subCreateAnswer = this.answersService.createAnswer(answer).subscribe((resp) => {
