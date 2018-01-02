@@ -8,11 +8,16 @@
 
     <div class="text" [innerHTML]="question?.body || ''"></div>
 
-    <div class="tags">
-      <span class="tag" *ngFor="let tagId of question?.tags" >{{ tagsObj[tagId] }}</span>
-    </div>
+    <div class="info">
+      <div class="tags" *ngIf="question?.tags">
+        <span class="tag-title">Тэги: </span>
+        <span class="tag" *ngFor="let tagId of question?.tags" >{{ tagsObj[tagId] }}</span>
+      </div>
 
-    <div class="text" [innerHTML]="creationDateHuman || ''"></div>
-    <div class="author" [innerHTML]="questionAuthor || ''"></div>
+      <div class="meta">
+        <div class="created-date">{{ creationDateHuman }}</div>
+        <div class="author">{{ questionAuthor }}</div>
+      </div>
+    </div>
   </div>
 </div>

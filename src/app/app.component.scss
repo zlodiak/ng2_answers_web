@@ -68,6 +68,7 @@
 	.main{
 		padding: $basic-measure;
 		overflow: hidden;
+		overflow-y: auto;
 		height: calc(100% - 152px);
 	}
 

@@ -5,7 +5,9 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-bottom: $basic-measure * 2;
+  padding-bottom: $basic-measure;
+  margin-bottom: $basic-measure;
+  border-bottom: 1px solid $unactive-color;
 
   .left{
     width: 40px;
@@ -18,21 +20,10 @@
       margin-top: 0;
     }
 
-    .tag{
-
-      .delete{
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      &:after{
-        content: ', ';
-      }
-
-      &:last-child:after{
-        content: '';
-      }
+    .text{
+      padding-bottom: $basic-measure;
     }
+
   }
 }
 

@@ -21,3 +21,48 @@ body{
 		background: $unactive-color;
 	}
 }
+
+
+.info{
+
+	.tags{
+
+		.tag-title{
+			font-weight: bold;
+			color: $unactive-color;
+		}
+
+		.tag{
+
+			&:after{
+				content: ', ';
+			}
+
+			&:last-child:after{
+				content: '';
+			}
+		}
+	}
+
+	.meta{
+		text-align: right;
+
+		.created-date{
+			display: inline-block;
+			font-size: 70%;
+			color: $unactive-color;
+
+			&:before{
+				content: '(';
+			}
+
+			&:after{
+				content: ')';
+			}
+		}
+
+		.author{
+			display: inline-block;
+		}
+	}
+}

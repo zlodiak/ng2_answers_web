@@ -1,0 +1,16 @@
+@import "~vars.scss";
+
+.question{
+  padding-bottom:  $basic-measure;
+  margin-bottom:  $basic-measure;
+  border-bottom: 1px solid $unactive-color;
+
+  .title{
+    margin-bottom: $basic-measure;
+    display: inline-block;
+    color: $basic-color;
+    font-weight: Bold;
+  }
+
+
+}

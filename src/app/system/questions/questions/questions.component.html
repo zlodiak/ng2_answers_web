@@ -1,3 +1,15 @@
 <div class="question" *ngFor="let q of questions">
-  <a [routerLink]="['/question', q.id]">{{ q.title }} ({{ q.author }})</a>
+  <a class="title" [routerLink]="['/question', q.id]">{{ q.title }}</a>
+
+  <div class="info">
+    <div class="tags" *ngIf="q.tags.length">
+      <span class="tag-title">Тэги: </span>
+      <span class="tag" *ngFor="let tagId of q.tags">{{ tags[tagId] }}</span>
+    </div>
+
+    <div class="meta">
+      <div class="created-date">{{ q.createdDateHuman }}</div>
+      <div class="author">{{ q.author }}</div>
+    </div>
+  </div>
 </div>
