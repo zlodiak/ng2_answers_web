@@ -5,14 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
 
 import { User } from '../interfaces/user';
-import { HashService } from './hash.service';
 
 
 @Injectable()
 export class UsersService {
 
-  constructor(private httpClient: HttpClient,
-              private hashService: HashService) {}
+  constructor(private httpClient: HttpClient) {}
 
   createUser(user: User): Observable<any> {
     console.log('users ser', user, typeof user);
@@ -23,21 +21,6 @@ export class UsersService {
     return this.httpClient.get(`http://localhost:3000/users?id=${id}`).map((users: User[]) => {
       return users[0] ? users[0] : undefined;
     });
-  }
-
-  isValidPassword(id, password): Promise<boolean>{
-    const passwordHash = this.hashService.generate(password);
-
-    return new Promise((resolve, reject) => {
-      this.getUserById(id).subscribe((user: User) => {
-        if(user && passwordHash === user.password) {
-          resolve(true);
-        } else {
-          resolve(false);
-        }
-      });
-    });
-
   }
 
 }

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { UsersService } from '../../shared/services/users.service';
 import { GlobalVarsService } from '../../shared/services/global-vars.service';
+import { HashService } from '../../shared/services/hash.service';
 
 
 @Component({
@@ -15,9 +16,10 @@ import { GlobalVarsService } from '../../shared/services/global-vars.service';
 export class LoginComponent implements OnInit, OnDestroy {
 
   private form: FormGroup;
-  private subGetUserById;
+  private subGetUserById: Subscription;
 
   constructor(private usersService: UsersService,
+              private hashService: HashService,
               private globalVarsService: GlobalVarsService,
               private router: Router) { }
 
@@ -33,18 +35,18 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   private onSubmit(): void {
-    this.usersService.isValidPassword(this.form.value.email, this.form.value.password).then((resp) => {
-      if(resp) {
-        this.subGetUserById = this.usersService.getUserById(this.form.value.email).subscribe((user) => {
-          this.globalVarsService.setVar('authorizedUser', user);
-          this.router.navigate(['/questions'], {queryParams: {
-            authNow: true,
-            authId: user.id,
-            authName: user.name
-          }});
-        });
+    this.subGetUserById = this.usersService.getUserById(this.form.value.email).subscribe((user) => {
+      const passwordHash = this.hashService.generate(this.form.value.password);
+
+      if(user && passwordHash === user.password) {
+        this.globalVarsService.setVar('authorizedUser', user);
+        this.router.navigate(['/questions'], {queryParams: {
+          authNow: true,
+          authId: user.id,
+          authName: user.name
+        }});
       } else {
-        console.log('auth is failed');
+        alert('auth is failed');
       }
     });
   }
