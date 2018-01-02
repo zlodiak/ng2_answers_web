@@ -2,10 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { MatDialog } from '@angular/material';
 
 import { UsersService } from '../../shared/services/users.service';
 import { GlobalVarsService } from '../../shared/services/global-vars.service';
 import { HashService } from '../../shared/services/hash.service';
+
+import { InfoDialogComponent } from '../../shared/dialogs/info-dialog/info-dialog.component';
 
 
 @Component({
@@ -20,6 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private usersService: UsersService,
               private hashService: HashService,
+              private matDialog: MatDialog,
               private globalVarsService: GlobalVarsService,
               private router: Router) { }
 
@@ -46,7 +50,11 @@ export class LoginComponent implements OnInit, OnDestroy {
           authName: user.name
         }});
       } else {
-        alert('auth is failed');
+        this.matDialog.open(InfoDialogComponent, {
+          width: '300px',
+          hasBackdrop: true,
+          data: {title: 'Ошибка!', message: 'Неверные авторизационные данные'}
+        });
       }
     });
   }
