@@ -1,4 +1,4 @@
-<div class="question" *ngFor="let q of questions">
+<div class="question" *ngFor="let q of questions | orderBy: 'createdDate': true">
   <a class="title" [routerLink]="['/question', q.id]">{{ q.title }}</a>
 
   <div class="info">

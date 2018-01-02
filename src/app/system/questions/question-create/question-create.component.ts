@@ -2,8 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { MatDialog } from '@angular/material';
 
 import { Question } from '../../shared/interfaces/question';
+import { InfoDialogComponent } from '../../../shared/dialogs/info-dialog/info-dialog.component';
+
 import { QuestionsService } from '../../shared/services/questions.service';
 import { GlobalVarsService } from '../../../shared/services/global-vars.service';
 import { TagsService } from '../../shared/services/tags.service';
@@ -25,7 +28,8 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
   private subCreateTag: Subscription;
   private subGetTags: Subscription;
 
-  constructor(private questionsService: QuestionsService,
+  constructor(private matDialog: MatDialog,
+              private questionsService: QuestionsService,
               private router: Router,
               private globalVarsService: GlobalVarsService,
               private tagsService: TagsService) { }
@@ -68,6 +72,12 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
       this.router.navigate(['/question/' + resp.id], {queryParams: {
         questionCreateNow: true
       }});
+
+      this.matDialog.open(InfoDialogComponent, {
+        width: '300px',
+        hasBackdrop: true,
+        data: {title: 'Выполнено', message: 'Вопрос создан'}
+      });
     });
   }
 

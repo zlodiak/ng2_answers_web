@@ -141,6 +141,33 @@
       "ratingMinus": [],
       "createdDateUnix": "1514914818.642",
       "id": 8
+    },
+    {
+      "author": "admin@ad.ad",
+      "isDecided": false,
+      "isDeleted": false,
+      "tags": [],
+      "title": "Африканские слоны",
+      "body": "Африканские слоны (лат. Loxodonta) — род африканских млекопитающих отряда хоботных. Предположительно включает два современных вида: саванный слон (Loxodonta africana (L. Blumenbach, 1797)) и лесной слон (Loxodonta cyclotis (Paul Matschie, 1900)). Последние исследования ядерной ДНК африканских слонов дают возможность предполагать, что эти два вида рода Loxodonta образовались 1,9 и 7,1 миллиона лет назад. До недавнего времени они считались подвидами (Loxodonta africana africana и L. africana cyclotis).",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "createdDateUnix": "1514915405.081",
+      "id": 9
+    },
+    {
+      "author": "admin@ad.ad4",
+      "isDecided": false,
+      "isDeleted": false,
+      "tags": [
+        1,
+        3
+      ],
+      "title": "Последние исследования",
+      "body": "Последние исследования ядерной ДНК африканских слонов дают возможность предполагать, что эти два вида рода Loxodonta образовались 1,9 и 7,1 миллиона лет назад",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "createdDateUnix": "1514915651.612",
+      "id": 10
     }
   ],
   "tags": [
@@ -187,7 +214,7 @@
   ],
   "answers": [
     {
-      "createdDateUnix": "1514843378954",
+      "createdDateUnix": "1514914714.362",
       "author": "admin@ad.ad",
       "body": "В качестве убежища ежиха либо роет собственную нору, либо использует брошенные норы грызунов. В норе находится подстилка из сухой травы и листьев.",
       "ratingPlus": [],
@@ -195,16 +222,6 @@
       "isSolution": false,
       "questionId": 1,
       "id": 1
-    },
-    {
-      "createdDateUnix": "1514850385761",
-      "author": "admin@ad.ad3",
-      "body": "Через несколько часов после рождения у ежат появляются белые и тёмные мягкие иглы",
-      "ratingPlus": [],
-      "ratingMinus": [],
-      "isSolution": false,
-      "questionId": 1,
-      "id": 2
     },
     {
       "createdDateUnix": "1514857273.478",
@@ -235,6 +252,36 @@
       "isSolution": false,
       "questionId": 1,
       "id": 5
+    },
+    {
+      "createdDateUnix": "1514915863.669",
+      "author": "admin@ad.ad4",
+      "body": "о время драки ежи громко сопят",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "isSolution": false,
+      "questionId": 6,
+      "id": 6
+    },
+    {
+      "createdDateUnix": "1514917029.544",
+      "author": "admin@ad.ad2",
+      "body": "чернозобик",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "isSolution": false,
+      "questionId": 2,
+      "id": 7
+    },
+    {
+      "createdDateUnix": "1514917169.181",
+      "author": "admin@ad.ad3",
+      "body": "хвоста — около 3 см[4] масса тела — 700—800 г[",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "isSolution": false,
+      "questionId": 1,
+      "id": 8
     }
   ]
 }

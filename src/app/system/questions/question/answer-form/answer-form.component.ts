@@ -2,6 +2,9 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { MatDialog } from '@angular/material';
+
+import { InfoDialogComponent } from '../../../../shared/dialogs/info-dialog/info-dialog.component';
 
 import { Answer } from '../../../shared/interfaces/answer';
 import { AnswersService } from '../../../shared/services/answers.service';
@@ -20,7 +23,8 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
 
   @Input() questionId: string;
 
-  constructor(private router: Router,
+  constructor(private matDialog: MatDialog,
+              private router: Router,
               private globalVarsService: GlobalVarsService,
               private answersService: AnswersService) { }
 
@@ -52,9 +56,16 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
 
     this.subCreateAnswer = this.answersService.createAnswer(answer).subscribe((resp) => {
       this.form.patchValue({answer: ''});
+
       this.router.navigate(['/question/' + +this.questionId], {queryParams: {
         answerAddNow: true
       }});
+
+      this.matDialog.open(InfoDialogComponent, {
+        width: '300px',
+        hasBackdrop: true,
+        data: {title: 'Выполнено', message: 'Ваш ответ добавлен'}
+      });
     });
   }
 

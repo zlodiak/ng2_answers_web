@@ -3,6 +3,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {  MatButtonModule,
           MatDialogModule} from '@angular/material';
 
+import { OrderModule } from 'ngx-order-pipe';
+
 import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component';
 
 import { DateService } from './services/date.service';
@@ -11,6 +13,7 @@ import { UsersService } from './services/users.service';
 
 @NgModule({
   exports: [
+    OrderModule,
     ReactiveFormsModule,
     MatDialogModule,
     MatButtonModule

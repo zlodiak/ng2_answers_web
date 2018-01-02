@@ -5,6 +5,11 @@
   margin-bottom:  $basic-measure;
   border-bottom: 1px solid $unactive-color;
 
+  &:last-child{
+    border: none;
+    margin-bottom: 0;
+  }
+
   .title{
     margin-bottom: $basic-measure;
     display: inline-block;

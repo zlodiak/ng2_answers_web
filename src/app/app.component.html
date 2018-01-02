@@ -29,8 +29,8 @@
     <router-outlet></router-outlet>
   </main>
 
-  <footer class="footer">
-    © Sergey Kalinin 2018
+  <footer class="footer" *ngIf="author || createdDate">
+    © {{ author }} {{ createdDate }}
   </footer>
 </div>
 

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { GlobalVarsService } from './shared/services/global-vars.service';
 import { User } from './shared/interfaces/user';
+import { Config } from './config';
 
 
 @Component({
@@ -13,9 +14,13 @@ import { User } from './shared/interfaces/user';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
+  private author: string = Config.author;
+  private createdDate: string = Config.createdDate;
+
   private isOpen: boolean = false;
   private authorizedUserId: string | boolean;
   private authorizedUserName: string | boolean;
+
   private subGetAuthorizedUser: Subscription;
 
   constructor(private globalVarsService: GlobalVarsService,
