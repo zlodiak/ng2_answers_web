@@ -18,10 +18,12 @@ import { User } from '../../../shared/interfaces/user';
 export class QuestionCreateComponent implements OnInit, OnDestroy {
 
   private form: FormGroup;
-  private subCreateQuestion: Subscription;
-  private subCreateTag: Subscription;
   private tags: string[] = [];
   private authorizedUser: User;
+
+  private subCreateQuestion: Subscription;
+  private subCreateTag: Subscription;
+  private subGetTags: Subscription;
 
   constructor(private questionsService: QuestionsService,
               private router: Router,
@@ -41,6 +43,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if(this.subCreateQuestion) { this.subCreateQuestion.unsubscribe(); }
     if(this.subCreateTag) { this.subCreateTag.unsubscribe(); }
+    if(this.subGetTags) { this.subGetTags.unsubscribe(); }
   }
 
   private createQuestion(tagsIds: number[]): void {
@@ -73,7 +76,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
     const newTags: string[] = [];
     const storagedTagsIds: number[] = [];
 
-    this.tagsService.getTags().subscribe((tags) => {
+    this.subGetTags = this.tagsService.getTags().subscribe((tags) => {
       this.tags.forEach((newTag) => {
         let isExist = false;
 
@@ -96,7 +99,6 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
 
       setTimeout(() => {
         const allTagsIds = tagsIds.concat(storagedTagsIds);
-        // console.log(tagsIds, storagedTagsIds, allTagsIds);
         this.createQuestion(allTagsIds);
       }, 2000);
 
