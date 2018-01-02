@@ -18,19 +18,37 @@
       margin-top: 0;
     }
 
-    .tag{
+    .comments-wrap{
+      overflow: hidden;
 
-      .delete{
-        font-weight: bold;
-        cursor: pointer;
+      .comments-list{
+
       }
 
-      &:after{
-        content: ', ';
-      }
+      .comment-area{
 
-      &:last-child:after{
-        content: '';
+        .comment-label{
+
+        }
+
+        .comment-form{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-start;
+          width: 100%;
+          overflow: hidden;
+
+          .comment{
+            width: calc(100% - 220px);
+            height: $basic-measure * 4;
+            margin-right: $basic-measure;
+          }
+
+          .btn{
+            width: 180px;
+          }
+        }
       }
     }
   }

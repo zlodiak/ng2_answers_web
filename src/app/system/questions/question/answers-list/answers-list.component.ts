@@ -1,12 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Rx';
 
-import { AnswersService } from '../../../shared/services/answers.service';
 import { Answer } from '../../../shared/interfaces/answer';
+import { User } from '../../../../shared/interfaces/user';
+
+import { AnswersService } from '../../../shared/services/answers.service';
 import { DateService } from '../../../../shared/services/date.service';
 import { UsersService } from '../../../../shared/services/users.service';
+import { GlobalVarsService } from '../../../../shared/services/global-vars.service';
 
 
 @Component({
@@ -16,15 +20,19 @@ import { UsersService } from '../../../../shared/services/users.service';
 })
 export class AnswersListComponent implements OnInit, OnDestroy {
 
+  private form: FormGroup;
   private questionId: number;
   private answers: Answer[] = [];
   private answers_: any[] = [];
+  private authorizedUser: User;
+  private commentsFormsVisibility: Object = {};
 
   private getAnswersByQ: Subscription;
   private subParams: Subscription;
   private subGetAuthorName: Subscription;
 
-  constructor(private answersService: AnswersService,
+  constructor(private globalVarsService: GlobalVarsService,
+              private answersService: AnswersService,
               private activatedRoute: ActivatedRoute,
               private dateService: DateService,
               private usersService: UsersService) { }
@@ -37,6 +45,12 @@ export class AnswersListComponent implements OnInit, OnDestroy {
       this.questionId = +data[0]['id'];
       this.getAnswers();
     });
+
+    this.form = new FormGroup({
+      'comment': new FormControl('', [Validators.required, Validators.minLength(1)])
+    });
+
+    this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
   }
 
   ngOnDestroy() {
@@ -55,6 +69,15 @@ export class AnswersListComponent implements OnInit, OnDestroy {
       });
       this.answers_ = answers;
     });
+  }
+
+  private sendComment(): void {
+    console.log(this.form);
+  }
+
+  private toggleCommentsFormsVisibility(id): void {
+    console.log(id);
+    this.commentsFormsVisibility[id] = !this.commentsFormsVisibility[id];
   }
 
 }

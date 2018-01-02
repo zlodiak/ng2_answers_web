@@ -1,6 +1,6 @@
 <div class="wrap answer-wrap" *ngFor="let a of answers_ | orderBy: 'createdDate': false">
   <div class="left">
-    f
+    f_{{ a.id }}
   </div>
 
   <div class="right">
@@ -11,6 +11,26 @@
         <div class="created-date">{{ a.createdDateHuman }}</div>
         <div class="author">{{ a.authorName }}</div>
       </div>
+    </div>
+
+    <div class="comments-wrap">
+      <div class="comments-list">
+        coments list
+      </div>
+
+      <!--<div class="comment-area" *ngIf="authorizedUser">-->
+        <div class="comment-label" (click)="toggleCommentsFormsVisibility(a.id)" *ngIf="!commentsFormsVisibility[a.id]">
+          Добавить комментарий
+        </div>
+
+        <form class="comment-form" [formGroup]="form" (ngSubmit)="sendComment()" *ngIf="commentsFormsVisibility[a.id]">
+          <textarea class="comment" name="comment" id="answer" placeholder="Текст комментария" formControlName="comment"></textarea>
+
+          <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
+            Комментировать
+          </button>
+        </form>
+      <!--</div>-->
     </div>
   </div>
 </div>
