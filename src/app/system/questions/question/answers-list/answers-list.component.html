@@ -23,10 +23,15 @@
           Добавить комментарий
         </div>
 
-        <form class="comment-form" [formGroup]="form" (ngSubmit)="sendComment()" *ngIf="commentsFormsVisibility[a.id]">
-          <textarea class="comment" name="comment" id="answer" placeholder="Текст комментария" formControlName="comment"></textarea>
+        <form class="comment-form" (ngSubmit)="sendComment(a.id)" *ngIf="commentsFormsVisibility[a.id]">
+          <textarea class="comment"
+                    id="answer_{{ a.id }}"
+                    placeholder="Текст комментария"
+                    (keyup)="setCommentFormValues(a.id, $event)"
+                    [(ngModel)]="commentFormValues[a.id]"
+                    [ngModelOptions]="{standalone: true}"></textarea>
 
-          <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
+          <button class="btn btn-common" type="submit" mat-button [disabled]="!commentFormValues[a.id]">
             Комментировать
           </button>
         </form>

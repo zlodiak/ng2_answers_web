@@ -283,5 +283,34 @@
       "questionId": 1,
       "id": 8
     }
+  ],
+  "answerComments": [
+    {
+      "createdDateUnix": "1514928594.222",
+      "author": "admin@ad.ad",
+      "body": "qwerty",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "answerId": 1,
+      "id": 1
+    },
+    {
+      "createdDateUnix": "1514928733.681",
+      "author": "admin@ad.ad",
+      "body": "88888",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "answerId": 8,
+      "id": 2
+    },
+    {
+      "createdDateUnix": "1514929096.076",
+      "author": "admin@ad.ad",
+      "body": "вв",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "answerId": 1,
+      "id": 3
+    }
   ]
 }

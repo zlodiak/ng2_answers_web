@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Rx';
+import { MatDialog } from '@angular/material';
 
+import { InfoDialogComponent } from '../../../../shared/dialogs/info-dialog/info-dialog.component';
+
+import { AnswerComment } from '../../../shared/interfaces/answer-comment';
 import { Answer } from '../../../shared/interfaces/answer';
 import { User } from '../../../../shared/interfaces/user';
 
@@ -11,6 +14,7 @@ import { AnswersService } from '../../../shared/services/answers.service';
 import { DateService } from '../../../../shared/services/date.service';
 import { UsersService } from '../../../../shared/services/users.service';
 import { GlobalVarsService } from '../../../../shared/services/global-vars.service';
+import { CommentsService } from '../../../shared/services/comments.service';
 
 
 @Component({
@@ -20,19 +24,22 @@ import { GlobalVarsService } from '../../../../shared/services/global-vars.servi
 })
 export class AnswersListComponent implements OnInit, OnDestroy {
 
-  private form: FormGroup;
   private questionId: number;
   private answers: Answer[] = [];
   private answers_: any[] = [];
   private authorizedUser: User;
   private commentsFormsVisibility: Object = {};
+  private commentFormValues: Object = {};
 
   private getAnswersByQ: Subscription;
   private subParams: Subscription;
   private subGetAuthorName: Subscription;
+  private subCreateAnswerComment: Subscription;
 
-  constructor(private globalVarsService: GlobalVarsService,
+  constructor(private commentsService: CommentsService,
+              private globalVarsService: GlobalVarsService,
               private answersService: AnswersService,
+              private matDialog: MatDialog,
               private activatedRoute: ActivatedRoute,
               private dateService: DateService,
               private usersService: UsersService) { }
@@ -46,10 +53,6 @@ export class AnswersListComponent implements OnInit, OnDestroy {
       this.getAnswers();
     });
 
-    this.form = new FormGroup({
-      'comment': new FormControl('', [Validators.required, Validators.minLength(1)])
-    });
-
     this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
   }
 
@@ -57,6 +60,7 @@ export class AnswersListComponent implements OnInit, OnDestroy {
     if(this.getAnswersByQ) { this.getAnswersByQ.unsubscribe(); }
     if(this.subParams) { this.subParams.unsubscribe(); }
     if(this.subGetAuthorName) { this.subGetAuthorName.unsubscribe(); }
+    if(this.subCreateAnswerComment) { this.subCreateAnswerComment.unsubscribe(); }
   }
 
   private getAnswers(): void {
@@ -71,13 +75,35 @@ export class AnswersListComponent implements OnInit, OnDestroy {
     });
   }
 
-  private sendComment(): void {
-    console.log(this.form);
+  private sendComment(id): void {
+    // id autoincrement
+    const answerComment: AnswerComment = {
+      createdDateUnix: '' + (Date.now() / 1000),
+      author: this.authorizedUser.id,
+      body: this.commentFormValues[id],
+      isDeleted: false,
+      ratingPlus: [],
+      answerId: id
+    };
+
+    this.subCreateAnswerComment = this.commentsService.createAnswerComment(answerComment).subscribe((resp) => {
+      this.commentFormValues[id] = '';
+
+      this.matDialog.open(InfoDialogComponent, {
+        width: '300px',
+        hasBackdrop: true,
+        data: {title: 'Выполнено', message: 'Ваш комментарий добавлен'}
+      });
+    });
   }
 
   private toggleCommentsFormsVisibility(id): void {
-    console.log(id);
     this.commentsFormsVisibility[id] = !this.commentsFormsVisibility[id];
+  }
+
+  private setCommentFormValues(id, ev): void {
+    // console.log(id, ev.target.value);
+    this.commentFormValues[id] = ev.target.value;
   }
 
 }

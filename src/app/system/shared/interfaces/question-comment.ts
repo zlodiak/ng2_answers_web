@@ -1,5 +1,5 @@
 export interface questionComment {
-  id: number;
+  id?: number;
   createdDateUnix: string;
   author: string;
   body: string;

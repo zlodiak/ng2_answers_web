@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { SystemRoutingModule } from './system-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -7,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { QuestionsService } from './shared/services/questions.service';
 import { TagsService } from './shared/services/tags.service';
 import { AnswersService } from './shared/services/answers.service';
+import { CommentsService } from './shared/services/comments.service';
 
 import { SystemComponent } from './system.component';
 import { QuestionsComponent } from './questions/questions/questions.component';
@@ -25,6 +27,7 @@ import { AnswerFormComponent } from './questions/question/answer-form/answer-for
 
 @NgModule({
 	imports: [
+		FormsModule,
 		SharedModule,
 		CommonModule,
 		SystemRoutingModule
@@ -45,6 +48,7 @@ import { AnswerFormComponent } from './questions/question/answer-form/answer-for
 		AnswerFormComponent
 	],
 	providers: [
+		CommentsService,
     AnswersService,
     TagsService,
 		QuestionsService
