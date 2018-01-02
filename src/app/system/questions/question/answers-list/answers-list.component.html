@@ -1,9 +1,16 @@
-<div class="wrap answer-wrap" *ngFor="let a of answers">
+<div class="wrap answer-wrap" *ngFor="let a of answers_">
   <div class="left">
     f
   </div>
 
   <div class="right">
-    {{ a.body }}
+    <div class="text">{{ a.body }}</div>
+
+    <div class="info">
+      <div class="meta">
+        <div class="created-date">{{ a.createdDateHuman }}</div>
+        <div class="author">{{ a.authorName }}</div>
+      </div>
+    </div>
   </div>
 </div>

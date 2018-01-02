@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Rx';
 
 import { AnswersService } from '../../../shared/services/answers.service';
 import { Answer } from '../../../shared/interfaces/answer';
+import { DateService } from '../../../../shared/services/date.service';
+import { UsersService } from '../../../../shared/services/users.service';
 
 
 @Component({
@@ -16,12 +18,16 @@ export class AnswersListComponent implements OnInit, OnDestroy {
 
   private questionId: number;
   private answers: Answer[] = [];
+  private answers_: any[] = [];
 
   private getAnswersByQ: Subscription;
   private subParams: Subscription;
+  private subGetAuthorName: Subscription;
 
   constructor(private answersService: AnswersService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private dateService: DateService,
+              private usersService: UsersService) { }
 
   ngOnInit() {
     this.subParams = Observable.combineLatest(
@@ -36,11 +42,18 @@ export class AnswersListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if(this.getAnswersByQ) { this.getAnswersByQ.unsubscribe(); }
     if(this.subParams) { this.subParams.unsubscribe(); }
+    if(this.subGetAuthorName) { this.subGetAuthorName.unsubscribe(); }
   }
 
   private getAnswers(): void {
     this.getAnswersByQ = this.answersService.getAnswersByQ(this.questionId).subscribe((answers) => {
-      this.answers = answers;
+      answers.forEach((a) => {
+        a['createdDateHuman'] = this.dateService.fromUnixToHuman(a['createdDateUnix']);
+        this.subGetAuthorName = this.usersService.getUserById(a.author).subscribe((user) => {
+          a['authorName'] = user.name;
+        });
+      });
+      this.answers_ = answers;
     });
   }
 

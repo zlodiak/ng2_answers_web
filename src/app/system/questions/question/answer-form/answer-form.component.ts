@@ -41,7 +41,7 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
 
     // id is autoincrement
     const answer: Answer = {
-      createdDateUnix: '' + Date.now(),
+      createdDateUnix: '' + (Date.now() / 1000),
       author: authorizedUser.id,
       body: this.form.value.answer,
       ratingPlus: [],

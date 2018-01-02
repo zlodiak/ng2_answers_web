@@ -1,25 +1,27 @@
-<h2 class="h2">Создание вопроса</h2>
+<div class="wrap" *ngIf="authorizedUser">
+  <h2 class="h2">Создание вопроса</h2>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="authorizedUser">
-  <div class="line">
-    <input class="title" id="title" placeholder="Заголовок вопроса" type="text" formControlName="title">
-  </div>
-
-  <div class="line">
-    <textarea class="question" name="question" id="question" placeholder="Текст вопроса" formControlName="question" cols="30" rows="10"></textarea>
-  </div>
-
-  <div class="line">
-    <div class="tags">
-      <span class="title">Метки</span>
-      <span class="tag" *ngFor="let tag of tags">{{ tag }} <span class="delete" (click)="deleteTag(tag)">X</span></span>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="line">
+      <input class="title" id="title" placeholder="Заголовок вопроса" type="text" formControlName="title">
     </div>
-    <input class="tag" id="tag" placeholder="Введите тег и нажмите enter" type="text" formControlName="tag" #tag (keydown.enter)="addTag(tag.value, $event)">
-  </div>
 
-  <div class="line">
-    <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
-      Отправить
-    </button>
-  </div>
-</form>
+    <div class="line">
+      <textarea class="question" name="question" id="question" placeholder="Текст вопроса" formControlName="question" cols="30" rows="10"></textarea>
+    </div>
+
+    <div class="line info">
+      <div class="tags">
+        <span class="tag-title">Тэги: </span>
+        <span class="tag" *ngFor="let tag of tags">{{ tag }} <span class="delete" (click)="deleteTag(tag)">X</span></span>
+      </div>
+      <input class="tag-input" id="tagInput" placeholder="Введите тег и нажмите enter" type="text" formControlName="tag" #tag (keydown.enter)="addTag(tag.value, $event)">
+    </div>
+
+    <div class="line">
+      <button class="btn btn-common" type="submit" mat-button [disabled]="form.invalid">
+        Отправить
+      </button>
+    </div>
+  </form>
+</div>

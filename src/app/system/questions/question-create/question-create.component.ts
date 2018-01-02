@@ -58,7 +58,7 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
       body: this.form.value.question,
       ratingPlus: [],
       ratingMinus: [],
-      createdDateUnix: '' + Date.now()
+      createdDateUnix: '' + (Date.now() / 1000)
     };
 
     this.subCreateQuestion = this.questionsService.createQuestion(question).subscribe((resp) => {

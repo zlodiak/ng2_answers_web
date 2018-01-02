@@ -9,7 +9,7 @@
     <div class="text" [innerHTML]="question?.body || ''"></div>
 
     <div class="info">
-      <div class="tags" *ngIf="question?.tags">
+      <div class="tags" *ngIf="question?.tags.length">
         <span class="tag-title">Тэги: </span>
         <span class="tag" *ngFor="let tagId of question?.tags" >{{ tagsObj[tagId] }}</span>
       </div>
