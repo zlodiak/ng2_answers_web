@@ -1,0 +1,37 @@
+@import "~vars.scss";
+
+.wrap{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: $basic-measure * 2;
+
+  .left{
+    width: 40px;
+  }
+
+  .right{
+    width: calc(100% - 40px);
+
+    *{
+      margin-top: 0;
+    }
+
+    .tag{
+
+      .delete{
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      &:after{
+        content: ', ';
+      }
+
+      &:last-child:after{
+        content: '';
+      }
+    }
+  }
+}

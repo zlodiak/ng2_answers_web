@@ -59,7 +59,7 @@ export class AnswerFormComponent implements OnInit, OnDestroy {
 
       setTimeout(() => {
         this.router.navigate(['/question/' + +this.questionId], {queryParams: {
-          questionUpdateNow: true
+          answerAddNow: true
         }});
       }, 1000);
     });
