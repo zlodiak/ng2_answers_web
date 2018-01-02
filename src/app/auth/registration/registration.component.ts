@@ -38,18 +38,13 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   private onSubmit(): void {
-    //console.log(this.form);
-
     const user: User = {
       id: this.form.value.email,
       password: this.hashService.generate(this.form.value.password),
       name: this.form.value.name
     };
 
-    //console.log(user);
-
     this.subCreateUser = this.usersService.createUser(user).subscribe((resp) => {
-      console.log(resp);
       this.router.navigate(['/questions'], {queryParams: {
         authNow: true,
         authId: resp.id,
@@ -71,5 +66,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       });
     });
   }
+
 
 }

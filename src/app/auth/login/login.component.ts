@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   private onSubmit(): void {
-    // console.log(this.form);
-
     this.usersService.isValidPassword(this.form.value.email, this.form.value.password).then((resp) => {
       if(resp) {
         this.subGetUserById = this.usersService.getUserById(this.form.value.email).subscribe((user) => {

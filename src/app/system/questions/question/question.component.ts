@@ -17,7 +17,7 @@ import { QuestionsService } from '../../shared/services/questions.service';
 })
 export class QuestionComponent implements OnInit, OnDestroy {
 
-  private questionCreateNow: boolean;
+  private answerAddNow: boolean;
   private questionId: number;
   private authorizedUser: User;
   private isAnswered: boolean = false;
@@ -40,7 +40,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
       this.activatedRoute.queryParams
     ).subscribe((data: [any, any]) => {
       this.questionId = +data[0]['id'];
-      this.questionCreateNow = data[1]['questionCreateNow'];
+      this.answerAddNow = data[1]['answerAddNow'];
       this.checkAnswered();
       this.checkOwnQuestion();
     });

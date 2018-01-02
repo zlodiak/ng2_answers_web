@@ -190,6 +190,16 @@
       "isSolution": false,
       "questionId": 2,
       "id": 3
+    },
+    {
+      "createdDateUnix": "1514903285.008",
+      "author": "admin@ad.ad",
+      "body": "рептилии и амфибии.",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "isSolution": false,
+      "questionId": 5,
+      "id": 4
     }
   ]
 }

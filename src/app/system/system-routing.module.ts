@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SystemComponent } from './system.component';
 import { QuestionsComponent } from './questions/questions/questions.component';
 import { QuestionCreateComponent } from './questions/question-create/question-create.component';
 import { QuestionEditComponent } from './questions/question-edit/question-edit.component';
