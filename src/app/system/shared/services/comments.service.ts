@@ -15,4 +15,8 @@ export class CommentsService {
     return this.httpClient.post(Config.host + 'answerComments', answerComment);
   }
 
+  getAnswerComments(): Observable<any> {
+    return this.httpClient.get(Config.host + 'answerComments');
+  }
+
 }

@@ -4,24 +4,34 @@
   </div>
 
   <div class="right">
-    <div class="text">{{ a.body }}</div>
+    <div class="answer-area">
+      <div class="text">{{ a.body }}</div>
 
-    <div class="info">
-      <div class="meta">
-        <div class="created-date">{{ a.createdDateHuman }}</div>
-        <div class="author">{{ a.authorName }}</div>
+      <div class="info">
+        <div class="meta">
+          <div class="created-date">{{ a.createdDateHuman }}</div>
+          <div class="author">{{ a.authorName }}</div>
+        </div>
       </div>
     </div>
 
     <div class="comments-wrap">
       <div class="comments-list">
-        coments list
+        <div class="answer-comment" *ngFor="let ac of answerComments_ | orderBy: 'createdDate': false">
+          <div class="answer-comment-inner" *ngIf="a.id === ac.answerId">
+            <div class="body">{{ ac.body }}</div>
+            <div class="meta">
+              <div class="created-date">{{ ac.createdDateHuman }}</div>
+              <div class="author">{{ ac.author }}</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!--<div class="comment-area" *ngIf="authorizedUser">-->
-        <div class="comment-label" (click)="toggleCommentsFormsVisibility(a.id)" *ngIf="!commentsFormsVisibility[a.id]">
+        <button class="btn btn-common" type="button" (click)="toggleCommentsFormsVisibility(a.id)" *ngIf="!commentsFormsVisibility[a.id]" mat-button>
           Добавить комментарий
-        </div>
+        </button>
 
         <form class="comment-form" (ngSubmit)="sendComment(a.id)" *ngIf="commentsFormsVisibility[a.id]">
           <textarea class="comment"

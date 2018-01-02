@@ -18,16 +18,65 @@
       margin-top: 0;
     }
 
+    .answer-area{
+      padding-bottom: $basic-measure;
+    }
+
     .comments-wrap{
       overflow: hidden;
 
       .comments-list{
 
+        .answer-comment{
+
+          .answer-comment-inner{
+            padding-bottom: $basic-measure;
+            margin-bottom: $basic-measure;
+            border-bottom: 1px solid $unactive-color;
+            font-size: 70%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .body{
+
+            }
+
+            .meta{
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: flex-end;
+              align-items: center;
+              width: 100%;
+
+
+              .created-date{
+                display: inline-block;
+                font-size: 70%;
+                color: $unactive-color;
+
+                &:before{
+                  content: '(';
+                }
+
+                &:after{
+                  content: ')';
+                }
+              }
+
+              .author{
+                display: inline-block;
+                margin-left: $basic-measure / 2;
+              }
+            }
+          }
+        }
       }
 
       .comment-area{
 
-        .comment-label{
+        .btn{
 
         }
 

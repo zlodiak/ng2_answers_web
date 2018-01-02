@@ -23,7 +23,7 @@ export class QuestionBodyComponent implements OnInit, OnDestroy {
   private subTags: Subscription;
 
   private question: Question;
-  private creationDateHuman: string;
+  private createdDateHuman: string;
   private questionAuthor: string;
   private tagsObj: Object = {};
 
@@ -49,7 +49,7 @@ export class QuestionBodyComponent implements OnInit, OnDestroy {
       this.question = question;
       this.getAuthor(question.author);
       this.getTags(question.tags);
-      this.creationDateHuman = this.dateService.fromUnixToHuman(this.question.createdDateUnix);
+      this.createdDateHuman = this.dateService.fromUnixToHuman(this.question.createdDateUnix);
     });
   }
 

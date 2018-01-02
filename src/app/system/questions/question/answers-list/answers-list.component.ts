@@ -30,11 +30,15 @@ export class AnswersListComponent implements OnInit, OnDestroy {
   private authorizedUser: User;
   private commentsFormsVisibility: Object = {};
   private commentFormValues: Object = {};
+  // private answerComments: AnswerComment[] = [];
+  private answerComments_: any = [];
 
   private getAnswersByQ: Subscription;
   private subParams: Subscription;
   private subGetAuthorName: Subscription;
   private subCreateAnswerComment: Subscription;
+  private subCommentsService: Subscription;
+  private subAnswerCommentsService: Subscription;
 
   constructor(private commentsService: CommentsService,
               private globalVarsService: GlobalVarsService,
@@ -54,6 +58,8 @@ export class AnswersListComponent implements OnInit, OnDestroy {
     });
 
     this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
+
+    this.getAnswerComments();
   }
 
   ngOnDestroy() {
@@ -61,6 +67,8 @@ export class AnswersListComponent implements OnInit, OnDestroy {
     if(this.subParams) { this.subParams.unsubscribe(); }
     if(this.subGetAuthorName) { this.subGetAuthorName.unsubscribe(); }
     if(this.subCreateAnswerComment) { this.subCreateAnswerComment.unsubscribe(); }
+    if(this.subCommentsService) { this.subCommentsService.unsubscribe(); }
+    if(this.subAnswerCommentsService) { this.subAnswerCommentsService.unsubscribe(); }
   }
 
   private getAnswers(): void {
@@ -94,6 +102,8 @@ export class AnswersListComponent implements OnInit, OnDestroy {
         hasBackdrop: true,
         data: {title: 'Выполнено', message: 'Ваш комментарий добавлен'}
       });
+
+      this.getAnswerComments();
     });
   }
 
@@ -104,6 +114,18 @@ export class AnswersListComponent implements OnInit, OnDestroy {
   private setCommentFormValues(id, ev): void {
     // console.log(id, ev.target.value);
     this.commentFormValues[id] = ev.target.value;
+  }
+
+  private getAnswerComments(): void {
+    this.subAnswerCommentsService = this.commentsService.getAnswerComments().subscribe((answerComments) => {
+      answerComments.forEach((ac) => {
+        ac['createdDateHuman'] = this.dateService.fromUnixToHuman(ac['createdDateUnix']);
+        this.subGetAuthorName = this.usersService.getUserById(ac.author).subscribe((user) => {
+          ac['author'] = user.name;
+        });
+      });
+      this.answerComments_ = answerComments;
+    });
   }
 
 }
