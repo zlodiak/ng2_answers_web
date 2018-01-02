@@ -9,7 +9,7 @@
 
     <div class="auth">
       <div class="authorized" *ngIf="authorizedUserId">
-        <div class="drop-menu" awDropMenu>
+        <div class="drop-menu" (click)="toggleMenu()" [ngClass]="{'open': isOpen}">
           <div class="title">{{ authorizedUserName }}</div>
           <div class="drop-area">
             <div class="link">Профиль</div>

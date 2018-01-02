@@ -13,6 +13,7 @@ import { User } from './shared/interfaces/user';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
+  private isOpen: boolean = false;
   private authorizedUserId: string | boolean;
   private authorizedUserName: string | boolean;
   private subGetAuthorizedUser: Subscription;
@@ -38,6 +39,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.navigate(['/questions'], {queryParams: {
       logoutNow: true
     }});
+  }
+
+  private toggleMenu(): void {
+    this.isOpen = !this.isOpen;
   }
 
 }
