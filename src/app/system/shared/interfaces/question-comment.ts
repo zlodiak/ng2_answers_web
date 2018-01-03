@@ -1,4 +1,4 @@
-export interface questionComment {
+export interface QuestionComment {
   id?: number;
   createdDateUnix: string;
   author: string;

@@ -282,6 +282,16 @@
       "isSolution": false,
       "questionId": 1,
       "id": 8
+    },
+    {
+      "createdDateUnix": "1514936901.301",
+      "author": "admin@ad.ad",
+      "body": "Loxodonta",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "isSolution": false,
+      "questionId": 10,
+      "id": 9
     }
   ],
   "answerComments": [
@@ -356,6 +366,62 @@
       "ratingPlus": [],
       "answerId": 5,
       "id": 8
+    },
+    {
+      "createdDateUnix": "1514934414.055",
+      "author": "admin@ad.ad2",
+      "body": "В норе находится",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "answerId": 1,
+      "id": 9
+    },
+    {
+      "createdDateUnix": "1514938056.584",
+      "author": "admin@ad.ad2",
+      "body": "sss",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "answerId": 9,
+      "id": 10
+    }
+  ],
+  "questionComments": [
+    {
+      "createdDateUnix": "1514936971.924",
+      "author": "admin@ad.ad",
+      "body": "qqq",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 10,
+      "id": 1
+    },
+    {
+      "createdDateUnix": "1514937095.346",
+      "author": "admin@ad.ad",
+      "body": "www",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 10,
+      "id": 2
+    },
+    {
+      "createdDateUnix": "1514937478.334",
+      "author": "admin@ad.ad",
+      "body": "xxxx",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 10,
+      "id": 3
+    },
+    {
+      "createdDateUnix": "1514938029.568",
+      "author": "admin@ad.ad2",
+      "body": "возможность предполагать, что эти два вида рода L",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 10,
+      "id": 4
     }
   ]
 }

@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <!--<div class="comment-area" *ngIf="authorizedUser">-->
+      <div class="comment-area" *ngIf="authorizedUser">
         <button class="btn btn-common" type="button" (click)="toggleCommentsFormsVisibility(a.id)" *ngIf="!commentsFormsVisibility[a.id]" mat-button>
           Добавить комментарий
         </button>
@@ -45,7 +45,7 @@
             Комментировать
           </button>
         </form>
-      <!--</div>-->
+      </div>
     </div>
   </div>
 </div>
