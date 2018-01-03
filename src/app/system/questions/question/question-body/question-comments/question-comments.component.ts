@@ -37,7 +37,6 @@ export class QuestionCommentsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.authorizedUser = this.globalVarsService.getAuthorizedUser_();
-    console.log(this.questionId, this.authorizedUser);
     this.getQuestionComments();
   }
 

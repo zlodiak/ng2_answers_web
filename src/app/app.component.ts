@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { MatDialog } from '@angular/material';
+
+import { InfoDialogComponent } from './shared/dialogs/info-dialog/info-dialog.component';
 
 import { GlobalVarsService } from './shared/services/global-vars.service';
 import { User } from './shared/interfaces/user';
@@ -23,7 +26,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subGetAuthorizedUser: Subscription;
 
-  constructor(private globalVarsService: GlobalVarsService,
+  constructor(private matDialog: MatDialog,
+              private globalVarsService: GlobalVarsService,
               private router: Router) {}
 
   ngOnInit() {
@@ -41,9 +45,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private logout(): void {
     this.globalVarsService.setVar('authorizedUser', undefined);
+
     this.router.navigate(['/questions'], {queryParams: {
       logoutNow: true
     }});
+
+    this.matDialog.open(InfoDialogComponent, {
+      width: '300px',
+      hasBackdrop: true,
+      data: {title: 'Выполнено', message: 'Ваш вышли из системы'}
+    });
   }
 
   private toggleMenu(): void {

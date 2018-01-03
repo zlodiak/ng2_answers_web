@@ -16,36 +16,7 @@
     </div>
 
     <div class="comments-wrap">
-      <div class="comments-list">
-        <div class="answer-comment" *ngFor="let ac of answerComments_ | orderBy: 'createdDate': false">
-          <div class="answer-comment-inner" *ngIf="a.id === ac.answerId">
-            <div class="body">{{ ac.body }}</div>
-            <div class="meta">
-              <div class="created-date">{{ ac.createdDateHuman }}</div>
-              <div class="author">{{ ac.author }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="comment-area" *ngIf="authorizedUser">
-        <button class="btn btn-common" type="button" (click)="toggleCommentsFormsVisibility(a.id)" *ngIf="!commentsFormsVisibility[a.id]" mat-button>
-          Добавить комментарий
-        </button>
-
-        <form class="comment-form" (ngSubmit)="sendComment(a.id)" *ngIf="commentsFormsVisibility[a.id]">
-          <textarea class="comment"
-                    id="answer_{{ a.id }}"
-                    placeholder="Текст комментария"
-                    (keyup)="setCommentFormValues(a.id, $event)"
-                    [(ngModel)]="commentFormValues[a.id]"
-                    [ngModelOptions]="{standalone: true}"></textarea>
-
-          <button class="btn btn-common" type="submit" mat-button [disabled]="!commentFormValues[a.id]">
-            Комментировать
-          </button>
-        </form>
-      </div>
+      <aw-answer-comments [answerId]="a.id"></aw-answer-comments>
     </div>
   </div>
 </div>
