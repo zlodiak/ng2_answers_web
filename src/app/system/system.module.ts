@@ -23,6 +23,8 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { QuestionBodyComponent } from './questions/question/question-body/question-body.component';
 import { AnswersListComponent } from './questions/question/answers-list/answers-list.component';
 import { AnswerFormComponent } from './questions/question/answer-form/answer-form.component';
+import { QuestionCommentsComponent } from './questions/question/question-body/question-comments/question-comments.component';
+import { AnswerCommentsComponent } from './questions/question/answers-list/answer-comments/answer-comments.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { AnswerFormComponent } from './questions/question/answer-form/answer-for
 		UserEditComponent,
 		QuestionBodyComponent,
 		AnswersListComponent,
-		AnswerFormComponent
+		AnswerFormComponent,
+		QuestionCommentsComponent,
+		AnswerCommentsComponent
 	],
 	providers: [
 		CommentsService,
