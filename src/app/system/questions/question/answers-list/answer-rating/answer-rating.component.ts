@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { Answer } from '../../../../shared/interfaces/answer';
@@ -23,6 +23,10 @@ export class AnswerRatingComponent implements OnInit, OnDestroy {
   private subGetAnswer: Subscription;
 
   @Input() answerId: number;
+  @Input() questionId: number;
+  @Input() questionAuthor: string;
+
+  @Output() refreshAnswers = new EventEmitter<true>();
 
   constructor(private globalVarsService: GlobalVarsService,
               private answersService: AnswersService) { }
@@ -85,12 +89,36 @@ export class AnswerRatingComponent implements OnInit, OnDestroy {
     });
   }
 
-  private calcRating() {
+  private calcRating(): void {
     this.subGetAnswer = this.answersService.getAnswer(this.answerId).subscribe((answer) => {
       this.answer = answer;
       this.ratingPlus = answer.ratingPlus;
       this.ratingMinus = answer.ratingMinus;
     });
+  }
+
+  private setSolution(): void {
+    if(this.questionAuthor !== this.authorizedUser.id) { return; }
+
+    // сделаем все ответы этого вопроса не отвеченным
+    this.answersService.getAnswersByQ(this.questionId).subscribe((answers) => {
+      answers.forEach((answer) => {
+        answer.isSolution = false;
+        this.subUpdateAnswer = this.answersService.updateAnswer(answer.id, answer).subscribe(() => {});
+      });
+    });
+
+    // сделаем нужный ответ этого вопроса отвеченным
+    if(this.answer.isSolution !== true) {
+      setTimeout(() => {
+        this.answer.isSolution = true;
+        this.subUpdateAnswer = this.answersService.updateAnswer(this.answerId, this.answer).subscribe(() => { });
+      }, 2000);
+    }
+
+    setTimeout(() => {
+      this.refreshAnswers.emit(true);
+    }, 3000);
   }
 
 }

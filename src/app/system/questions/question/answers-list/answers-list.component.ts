@@ -8,6 +8,7 @@ import { Answer } from '../../../shared/interfaces/answer';
 import { AnswersService } from '../../../shared/services/answers.service';
 import { DateService } from '../../../../shared/services/date.service';
 import { UsersService } from '../../../../shared/services/users.service';
+import { QuestionsService } from '../../../shared/services/questions.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { UsersService } from '../../../../shared/services/users.service';
 export class AnswersListComponent implements OnInit, OnDestroy {
 
   private questionId: number;
+  private questionAuthor: string;
   private answers: Answer[] = [];
   private answers_: any[] = [];
 
@@ -28,6 +30,7 @@ export class AnswersListComponent implements OnInit, OnDestroy {
   constructor(private answersService: AnswersService,
               private activatedRoute: ActivatedRoute,
               private dateService: DateService,
+              private questionsService: QuestionsService,
               private usersService: UsersService) { }
 
   ngOnInit() {
@@ -37,6 +40,10 @@ export class AnswersListComponent implements OnInit, OnDestroy {
     ).subscribe((data: [any, any]) => {
       this.questionId = +data[0]['id'];
       this.getAnswers();
+
+      this.questionsService.getQuestion(this.questionId).subscribe((question) => {
+        this.questionAuthor = question.author;
+      });
     });
   }
 

@@ -121,7 +121,9 @@
       ],
       "title": "Польза и вред для людей",
       "body": "Обыкновенный ёж полезен уничтожением вредных насекомых: среди поедаемых им насекомых — майские жуки, гусеницы монашенки и непарный шелкопряд. В то же время ёж уничтожает птенцов и яйца гнездящихся на земле мелких птиц. Так, на Внешних Гебридах завезённые ежи превратились в настоящих вредителей, уничтожающих кладки таких птиц, как бекас, чернозобик, улит и чибис.",
-      "ratingPlus": [],
+      "ratingPlus": [
+        "admin@ad.ad"
+      ],
       "ratingMinus": [],
       "createdDateUnix": "1514857550.621",
       "id": 7
@@ -249,7 +251,9 @@
       "author": "admin@ad.ad",
       "body": "рептилии и амфибии.",
       "ratingPlus": [],
-      "ratingMinus": [],
+      "ratingMinus": [
+        "admin@ad.ad"
+      ],
       "isSolution": false,
       "questionId": 5,
       "id": 4
@@ -270,7 +274,7 @@
       "body": "о время драки ежи громко сопят",
       "ratingPlus": [],
       "ratingMinus": [],
-      "isSolution": false,
+      "isSolution": true,
       "questionId": 6,
       "id": 6
     },
@@ -280,7 +284,7 @@
       "body": "чернозобик",
       "ratingPlus": [],
       "ratingMinus": [],
-      "isSolution": false,
+      "isSolution": true,
       "questionId": 2,
       "id": 7
     },
@@ -288,7 +292,9 @@
       "createdDateUnix": "1514917169.181",
       "author": "admin@ad.ad3",
       "body": "хвоста — около 3 см[4] масса тела — 700—800 г[",
-      "ratingPlus": [],
+      "ratingPlus": [
+        "admin@ad.ad"
+      ],
       "ratingMinus": [],
       "isSolution": false,
       "questionId": 1,
@@ -300,9 +306,19 @@
       "body": "Loxodonta",
       "ratingPlus": [],
       "ratingMinus": [],
-      "isSolution": false,
+      "isSolution": true,
       "questionId": 10,
       "id": 9
+    },
+    {
+      "createdDateUnix": "1515035561.951",
+      "author": "admin@ad.ad",
+      "body": "Например, после нажатие кнопки отправить, выходило на той же странице всплывающее окно с сообщением \"Отправлено\" и после чего происходило простое обновление",
+      "ratingPlus": [],
+      "ratingMinus": [],
+      "isSolution": false,
+      "questionId": 8,
+      "id": 10
     }
   ],
   "answerComments": [
@@ -449,6 +465,15 @@
       "ratingPlus": [],
       "answerId": 5,
       "id": 16
+    },
+    {
+      "createdDateUnix": "1515035990.578",
+      "author": "admin@ad.ad",
+      "body": "erw",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "answerId": 1,
+      "id": 17
     }
   ],
   "questionComments": [
@@ -541,6 +566,15 @@
       "ratingPlus": [],
       "questionId": 1,
       "id": 10
+    },
+    {
+      "createdDateUnix": "1515035568.134",
+      "author": "admin@ad.ad",
+      "body": "ura",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 8,
+      "id": 11
     }
   ]
 }

@@ -1,22 +1,51 @@
-<div class="wrap answer-wrap" *ngFor="let a of answers_ | orderBy: 'createdDate': false">
-  <div class="left">
-    <aw-answer-rating [answerId]="a.id"></aw-answer-rating>
-  </div>
-
-  <div class="right">
-    <div class="answer-area">
-      <div class="text">{{ a.body }}</div>
-
-      <div class="info">
-        <div class="meta">
-          <div class="created-date">{{ a.createdDateHuman }}</div>
-          <div class="author">{{ a.authorName }}</div>
-        </div>
-      </div>
+<!-- is solution -->
+<div class="wrap-outer" *ngFor="let a of answers_ | orderBy: 'createdDate': false">
+  <div class="wrap answer-wrap" *ngIf="a.isSolution">
+    <div class="left">
+      <aw-answer-rating [answerId]="a.id" [questionId]="questionId" [questionAuthor]="questionAuthor" (refreshAnswers)="getAnswers()"></aw-answer-rating>
     </div>
 
-    <div class="comments-wrap">
-      <aw-answer-comments [answerId]="a.id"></aw-answer-comments>
+    <div class="right">
+      <div class="answer-area">
+        <div class="text">{{ a.body }}</div>
+
+        <div class="info">
+          <div class="meta">
+            <div class="created-date">{{ a.createdDateHuman }}</div>
+            <div class="author">{{ a.authorName }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-wrap">
+        <aw-answer-comments [answerId]="a.id"></aw-answer-comments>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- not solution -->
+<div class="wrap-outer" *ngFor="let a of answers_ | orderBy: 'createdDate': false">
+  <div class="wrap answer-wrap" *ngIf="!a.isSolution">
+    <div class="left">
+      <aw-answer-rating [answerId]="a.id" [questionId]="questionId" [questionAuthor]="questionAuthor" (refreshAnswers)="getAnswers()"></aw-answer-rating>
+    </div>
+
+    <div class="right">
+      <div class="answer-area">
+        <div class="text">{{ a.body }}</div>
+
+        <div class="info">
+          <div class="meta">
+            <div class="created-date">{{ a.createdDateHuman }}</div>
+            <div class="author">{{ a.authorName }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-wrap">
+        <aw-answer-comments [answerId]="a.id"></aw-answer-comments>
+      </div>
     </div>
   </div>
 </div>

@@ -21,4 +21,19 @@
     color: $accent2-color;
     cursor: pointer;
   }
+
+  .check{
+    color: $unactive-color;
+    font-weight: bold;
+    cursor: pointer;
+
+    &.solution{
+      color: $green-color;
+    }
+  }
+
+  .solution{
+    color: $green-color;
+    cursor: pointer;
+  }
 }
