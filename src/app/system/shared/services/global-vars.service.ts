@@ -30,4 +30,10 @@ export class GlobalVarsService {
     });
   }
 
+  getLoading(): Observable<any> {
+    return Observable.timer(0, 300).map(() => {
+      return this.globalVars['isLoading'];
+    });
+  }
+
 }

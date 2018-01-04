@@ -1,5 +1,13 @@
 @import "~vars.scss";
 
+.create-question-area{
+  padding-bottom: $basic-measure;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
 .question{
   padding-bottom:  $basic-measure;
   margin-bottom:  $basic-measure;

@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private author: string = Config.author;
   private createdDate: string = Config.createdDate;
 
+  private isLoading: boolean = false;
   private isOpen: boolean = false;
   private authorizedUserId: string | boolean;
   private authorizedUserName: string | boolean;
@@ -37,6 +38,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.authorizedUserName = user ? user.name : false;
       }
     );
+
+    this.globalVarsService.getLoading().subscribe((isLoading) => {
+      this.isLoading = isLoading;
+    });
   }
 
   ngOnDestroy() {

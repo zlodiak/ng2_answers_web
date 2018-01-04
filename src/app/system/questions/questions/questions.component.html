@@ -1,3 +1,9 @@
+<div class="create-question-area" *ngIf="authorizedUser">
+  <button class="btn btn-common" type="submit" mat-button (click)="toCreateQuestion()">
+    Задать вопрос
+  </button>
+</div>
+
 <div class="question" *ngFor="let q of questions | orderBy: 'createdDate': true">
   <a class="title" [routerLink]="['/question', q.id]">{{ q.title }}</a>
 

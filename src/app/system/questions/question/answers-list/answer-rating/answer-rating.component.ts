@@ -100,6 +100,8 @@ export class AnswerRatingComponent implements OnInit, OnDestroy {
   private setSolution(): void {
     if(this.questionAuthor !== this.authorizedUser.id) { return; }
 
+    this.globalVarsService.setVar('isLoading', true);
+
     // сделаем все ответы этого вопроса не отвеченным
     this.answersService.getAnswersByQ(this.questionId).subscribe((answers) => {
       answers.forEach((answer) => {
@@ -118,6 +120,7 @@ export class AnswerRatingComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       this.refreshAnswers.emit(true);
+      this.globalVarsService.setVar('isLoading', false);
     }, 3000);
   }
 

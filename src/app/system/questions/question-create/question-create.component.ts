@@ -73,6 +73,8 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
         questionCreateNow: true
       }});
 
+      this.globalVarsService.setVar('isLoading', false);
+
       this.matDialog.open(InfoDialogComponent, {
         width: '300px',
         hasBackdrop: true,
@@ -82,6 +84,8 @@ export class QuestionCreateComponent implements OnInit, OnDestroy {
   }
 
   private onSubmit(): void {
+    this.globalVarsService.setVar('isLoading', true);
+
     const tagsIds: number[] = [];
     const newTags: string[] = [];
     const storagedTagsIds: number[] = [];
