@@ -1,35 +1,41 @@
 <div class="wrap">
   <header class="header">
-    <nav class="nav">
-      <a class="link" [routerLink]="'/questions'" routerLinkActive="active">Вопросы</a>
-      <a class="link" [routerLink]="'/tags'" routerLinkActive="active">Теги</a>
-      <a class="link" [routerLink]="'/users'" routerLinkActive="active">Участники</a>
-    </nav>
+    <div class="header-inner inner">
+      <nav class="nav">
+        <a class="link" [routerLink]="'/questions'" routerLinkActive="active">Вопросы</a>
+        <a class="link" [routerLink]="'/tags'" routerLinkActive="active">Теги</a>
+        <a class="link" [routerLink]="'/users'" routerLinkActive="active">Участники</a>
+      </nav>
 
-    <div class="auth">
-      <div class="authorized" *ngIf="authorizedUserId">
-        <div class="drop-menu" (click)="toggleMenu()" [ngClass]="{'open': isOpen}">
-          <div class="title">{{ authorizedUserName }}</div>
-          <div class="drop-area">
-            <div class="link">Профиль</div>
-            <div class="link" (click)="logout()">Выйти</div>
+      <div class="auth">
+        <div class="authorized" *ngIf="authorizedUserId">
+          <div class="drop-menu" (click)="toggleMenu()" [ngClass]="{'open': isOpen}">
+            <div class="title">{{ authorizedUserName }}</div>
+            <div class="drop-area">
+              <div class="link">Профиль</div>
+              <div class="link" (click)="logout()">Выйти</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="unauthorized" *ngIf="!authorizedUserId">
-        <a class="link" [routerLink]="'/login'">Войти</a>
-        <a class="link" [routerLink]="'/registration'">Зарегистрироваться</a>
+        <div class="unauthorized" *ngIf="!authorizedUserId">
+          <a class="link" [routerLink]="'/login'">Войти</a>
+          <a class="link" [routerLink]="'/registration'">Зарегистрироваться</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="main">
-    <router-outlet></router-outlet>
-  </main>
+  <div class="main">
+    <div class="main-inner inner">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 
   <footer class="footer" *ngIf="author || createdDate">
-    © {{ author }} {{ createdDate }}
+    <div class="footer-inner inner">
+      © {{ author }} {{ createdDate }}
+    </div>
   </footer>
 </div>
 

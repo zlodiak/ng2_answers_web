@@ -2,62 +2,70 @@
 
 .wrap{
 	height: 100vh;
+	overflow: hidden;
 
 	.header{
 		background: #000;
-		color: #fff;
-		height: 28px;
-		padding: $basic-measure;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
 
-		.nav{
+		.header-inner{
+			color: #fff;
+			height: 60px;
+			padding: 0 $basic-measure;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
 
-			.link{
+			a{
+				color: #fff;
+			}
 
-				&.active{
-					color: red;
+			.nav{
+
+				.link{
+
+					&.active{
+						color: red;
+					}
 				}
 			}
-		}
 
-		.auth{
+			.auth{
 
-			.authorized{
-				width: 200px;
+				.authorized{
+					width: 200px;
 
-				.drop-menu{
-					position: relative;
-					text-align: right;
-
-					.title{
-						padding-right: 10px;
-						font-weight: bold;
-					}
-
-					.drop-area{
-						display: none;
-						position: absolute;
-						z-index: 100;
-						top: 39px;
-						right: 0;
+					.drop-menu{
+						position: relative;
 						text-align: right;
-						background: #000;
-						padding: 10px 10px 0;
-						font-size: 80%;
 
-						.link{
-							margin-bottom: 10px;
-							cursor: pointer;
+						.title{
+							padding-right: 10px;
+							font-weight: bold;
 						}
-					}
-
-					&.open{
 
 						.drop-area{
-							display: block;
+							display: none;
+							position: absolute;
+							z-index: 100;
+							top: 39px;
+							right: 0;
+							text-align: right;
+							background: #000;
+							padding: 10px 10px 0;
+							font-size: 80%;
+
+							.link{
+								margin-bottom: 10px;
+								cursor: pointer;
+							}
+						}
+
+						&.open{
+
+							.drop-area{
+								display: block;
+							}
 						}
 					}
 				}
@@ -66,23 +74,30 @@
 	}
 
 	.main{
-		padding: $basic-measure;
 		overflow: hidden;
 		overflow-y: auto;
 		height: calc(100% - 152px);
+		padding: $basic-measure;
+
+		.main-inner{
+
+		}
 	}
 
 	.footer{
 		background: #000;
-		color: #fff;
-		height: 28px;
-		overflow: hidden;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: center;
-		padding: $basic-measure;
-	}	
+
+		.footer-inner{
+			color: #fff;
+			height: 28px;
+			overflow: hidden;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			align-items: center;
+			padding: $basic-measure;
+		}
+	}
 }
 
 .loading{
@@ -97,4 +112,10 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+}
+
+.inner{
+	max-width: 700px;
+	width: 100%;
+	margin: 0 auto;
 }
