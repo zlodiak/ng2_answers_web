@@ -1,3 +1,19 @@
-<p>
-  tag-questions works!
-</p>
+<div class="tag-title-area">Вопросы с тэгом: {{ tags[tagId] }}</div>
+
+<div *ngFor="let q of questions">
+  <div class="question" *ngIf="q.tags.indexOf(tagId) !== -1">
+    <a class="title" [routerLink]="['/question', q.id]">{{ q.title }}</a>
+
+    <div class="info">
+      <div class="tags" *ngIf="q.tags.length">
+        <span class="tag-title">Тэги: </span>
+        <span class="tag" *ngFor="let tagId of q.tags">{{ tags[tagId] }}</span>
+      </div>
+
+      <div class="meta">
+        <div class="created-date">{{ q.createdDateHuman }}</div>
+        <div class="author">{{ q.author }}</div>
+      </div>
+    </div>
+  </div>
+</div>

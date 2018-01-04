@@ -1,7 +1,7 @@
 ccc
 
 <div class="comments-list">
-  <div class="answer-comment" *ngFor="let qc of questionComments_ | orderBy: 'createdDate': false">
+  <div class="answer-comment" *ngFor="let qc of questionComments_">
     <div class="answer-comment-inner" *ngIf="questionId === qc.questionId">
       <div class="body">{{ qc.body }}</div>
       <div class="meta">

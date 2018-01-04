@@ -1,0 +1,10 @@
+@import "~vars.scss";
+
+.tag{
+  background: $unactive-color;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 2px;
+  text-decoration: none;
+  display: inline-block;
+}

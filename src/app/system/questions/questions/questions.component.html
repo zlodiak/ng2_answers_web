@@ -4,7 +4,7 @@
   </button>
 </div>
 
-<div class="question" *ngFor="let q of questions | orderBy: 'createdDate': true">
+<div class="question" *ngFor="let q of questions">
   <a class="title" [routerLink]="['/question', q.id]">{{ q.title }}</a>
 
   <div class="info">

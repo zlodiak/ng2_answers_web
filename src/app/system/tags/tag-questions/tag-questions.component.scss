@@ -1,0 +1,33 @@
+@import "~vars.scss";
+
+.create-question-area{
+  padding-bottom: $basic-measure;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.question{
+  padding-bottom:  $basic-measure;
+  margin-bottom:  $basic-measure;
+  border-bottom: 1px solid $unactive-color;
+
+  &:last-child{
+    border: none;
+    margin-bottom: 0;
+  }
+
+  .title{
+    margin-bottom: $basic-measure;
+    display: inline-block;
+    color: $basic-color;
+    font-weight: Bold;
+  }
+}
+
+.tag-title-area{
+  padding-bottom: $basic-measure * 2;
+  font-weight: bold;
+  font-size: 150%;
+}
