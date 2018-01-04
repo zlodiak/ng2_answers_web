@@ -170,10 +170,11 @@
       "body": "Последние исследования ядерной ДНК африканских слонов дают возможность предполагать, что эти два вида рода Loxodonta образовались 1,9 и 7,1 миллиона лет назад",
       "ratingPlus": [
         "admin@ad.ad3",
-        "admin@ad.ad4",
+        "admin@ad.ad4"
+      ],
+      "ratingMinus": [
         "admin@ad.ad"
       ],
-      "ratingMinus": [],
       "createdDateUnix": "1514915651.612",
       "id": 10
     }
@@ -305,7 +306,9 @@
       "author": "admin@ad.ad",
       "body": "Loxodonta",
       "ratingPlus": [],
-      "ratingMinus": [],
+      "ratingMinus": [
+        "admin@ad.ad"
+      ],
       "isSolution": true,
       "questionId": 10,
       "id": 9
@@ -575,6 +578,24 @@
       "ratingPlus": [],
       "questionId": 8,
       "id": 11
+    },
+    {
+      "createdDateUnix": "1515049045.52",
+      "author": "admin@ad.ad",
+      "body": "ВАРАВР",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 10,
+      "id": 12
+    },
+    {
+      "createdDateUnix": "1515049266.988",
+      "author": "admin@ad.ad3",
+      "body": "ААА",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 10,
+      "id": 13
     }
   ]
 }

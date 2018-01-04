@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Answer } from '../../../../shared/interfaces/answer';
 import { User } from '../../../../../shared/interfaces/user';
 
-import { GlobalVarsService } from '../../../../../shared/services/global-vars.service';
+import { GlobalVarsService } from '../../../../shared/services/global-vars.service';
 import { AnswersService } from '../../../../shared/services/answers.service';
 
 @Component({

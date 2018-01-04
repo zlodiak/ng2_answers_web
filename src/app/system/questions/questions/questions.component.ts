@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { DateService } from '../../../shared/services/date.service';
+import { DateService } from '../../shared/services/date.service';
 import { TagsService } from '../../shared/services/tags.service';
 import { QuestionsService } from '../../shared/services/questions.service';
 

@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { User } from '../../shared/interfaces/user';
 import { HashService } from '../../shared/services/hash.service';
-import { GlobalVarsService } from '../../shared/services/global-vars.service';
-import { UsersService } from '../../shared/services/users.service';
+import { GlobalVarsService } from '../../system/shared/services/global-vars.service';
+import { UsersService } from '../../system/shared/services/users.service';
 
 
 @Component({

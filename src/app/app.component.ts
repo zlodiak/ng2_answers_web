@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 
 import { InfoDialogComponent } from './shared/dialogs/info-dialog/info-dialog.component';
 
-import { GlobalVarsService } from './shared/services/global-vars.service';
+import { GlobalVarsService } from './system/shared/services/global-vars.service';
 import { User } from './shared/interfaces/user';
 import { Config } from './config';
 

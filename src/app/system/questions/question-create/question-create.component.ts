@@ -8,7 +8,7 @@ import { Question } from '../../shared/interfaces/question';
 import { InfoDialogComponent } from '../../../shared/dialogs/info-dialog/info-dialog.component';
 
 import { QuestionsService } from '../../shared/services/questions.service';
-import { GlobalVarsService } from '../../../shared/services/global-vars.service';
+import { GlobalVarsService } from '../../shared/services/global-vars.service';
 import { TagsService } from '../../shared/services/tags.service';
 import { User } from '../../../shared/interfaces/user';
 

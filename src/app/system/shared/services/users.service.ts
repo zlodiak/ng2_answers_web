@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
 
-import { User } from '../interfaces/user';
-import { Config } from '../../config';
+import { User } from '../../../shared/interfaces/user';
+import { Config } from '../../../config';
 
 
 @Injectable()

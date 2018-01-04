@@ -7,10 +7,10 @@ import { InfoDialogComponent } from '../../../../../shared/dialogs/info-dialog/i
 import { User } from '../../../../../shared/interfaces/user';
 import { AnswerComment } from '../../../../shared/interfaces/answer-comment';
 
-import { GlobalVarsService } from '../../../../../shared/services/global-vars.service';
+import { GlobalVarsService } from '../../../../shared/services/global-vars.service';
 import { CommentsService } from '../../../../shared/services/comments.service';
-import { DateService } from '../../../../../shared/services/date.service';
-import { UsersService } from '../../../../../shared/services/users.service';
+import { DateService } from '../../../../shared/services/date.service';
+import { UsersService } from '../../../../shared/services/users.service';
 
 
 @Component({
