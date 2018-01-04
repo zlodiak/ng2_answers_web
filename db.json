@@ -149,7 +149,9 @@
       "tags": [],
       "title": "Африканские слоны",
       "body": "Африканские слоны (лат. Loxodonta) — род африканских млекопитающих отряда хоботных. Предположительно включает два современных вида: саванный слон (Loxodonta africana (L. Blumenbach, 1797)) и лесной слон (Loxodonta cyclotis (Paul Matschie, 1900)). Последние исследования ядерной ДНК африканских слонов дают возможность предполагать, что эти два вида рода Loxodonta образовались 1,9 и 7,1 миллиона лет назад. До недавнего времени они считались подвидами (Loxodonta africana africana и L. africana cyclotis).",
-      "ratingPlus": [],
+      "ratingPlus": [
+        "admin@ad.ad"
+      ],
       "ratingMinus": [],
       "createdDateUnix": "1514915405.081",
       "id": 9
@@ -164,7 +166,11 @@
       ],
       "title": "Последние исследования",
       "body": "Последние исследования ядерной ДНК африканских слонов дают возможность предполагать, что эти два вида рода Loxodonta образовались 1,9 и 7,1 миллиона лет назад",
-      "ratingPlus": [],
+      "ratingPlus": [
+        "admin@ad.ad3",
+        "admin@ad.ad4",
+        "admin@ad.ad"
+      ],
       "ratingMinus": [],
       "createdDateUnix": "1514915651.612",
       "id": 10
@@ -217,7 +223,10 @@
       "createdDateUnix": "1514914714.362",
       "author": "admin@ad.ad",
       "body": "В качестве убежища ежиха либо роет собственную нору, либо использует брошенные норы грызунов. В норе находится подстилка из сухой травы и листьев.",
-      "ratingPlus": [],
+      "ratingPlus": [
+        "admin@ad.ad",
+        "admin@ad.ad2"
+      ],
       "ratingMinus": [],
       "isSolution": false,
       "questionId": 1,
@@ -227,7 +236,9 @@
       "createdDateUnix": "1514857273.478",
       "author": "admin@ad.ad3",
       "body": "Так, на Внешних Гебридах завезённые ежи превратились в настоящих вредителей, уничтожающих кладки таких птиц, как бекас, чернозобик, улит и чибис.",
-      "ratingPlus": [],
+      "ratingPlus": [
+        "admin@ad.ad"
+      ],
       "ratingMinus": [],
       "isSolution": false,
       "questionId": 2,
@@ -429,6 +440,15 @@
       "ratingPlus": [],
       "answerId": 5,
       "id": 15
+    },
+    {
+      "createdDateUnix": "1515006880.754",
+      "author": "admin@ad.ad",
+      "body": "mmcvbcnnnnnnnnnngg",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "answerId": 5,
+      "id": 16
     }
   ],
   "questionComments": [
@@ -512,6 +532,15 @@
       "ratingPlus": [],
       "questionId": 10,
       "id": 9
+    },
+    {
+      "createdDateUnix": "1515006901.208",
+      "author": "admin@ad.ad",
+      "body": "fd",
+      "isDeleted": false,
+      "ratingPlus": [],
+      "questionId": 1,
+      "id": 10
     }
   ]
 }

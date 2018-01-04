@@ -11,6 +11,10 @@ export class QuestionsService {
 
   constructor(private httpClient: HttpClient) { }
 
+  updateQuestion(id: number, question: Question): Observable<any> {
+    return this.httpClient.put(Config.host + `questions/${id}`, question);
+  }
+
   getQuestion(id: number): Observable<any> {
     return this.httpClient.get(Config.host + `questions/${id}`);
   }

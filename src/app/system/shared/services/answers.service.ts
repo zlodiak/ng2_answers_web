@@ -23,4 +23,12 @@ export class AnswersService {
     return this.httpClient.post(Config.host + 'answers', answer);
   }
 
+  getAnswer(id: number): Observable<any> {
+    return this.httpClient.get(Config.host + `answers/${id}`);
+  }
+
+  updateAnswer(id: number, answer: Answer): Observable<any> {
+    return this.httpClient.put(Config.host + `answers/${id}`, answer);
+  }
+
 }

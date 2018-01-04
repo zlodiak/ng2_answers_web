@@ -1,6 +1,6 @@
 <div class="wrap answer-wrap" *ngFor="let a of answers_ | orderBy: 'createdDate': false">
   <div class="left">
-    f_{{ a.id }}
+    <aw-answer-rating [answerId]="a.id"></aw-answer-rating>
   </div>
 
   <div class="right">

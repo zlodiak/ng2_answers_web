@@ -25,6 +25,8 @@ import { AnswersListComponent } from './questions/question/answers-list/answers-
 import { AnswerFormComponent } from './questions/question/answer-form/answer-form.component';
 import { QuestionCommentsComponent } from './questions/question/question-body/question-comments/question-comments.component';
 import { AnswerCommentsComponent } from './questions/question/answers-list/answer-comments/answer-comments.component';
+import { QuestionRatingComponent } from './questions/question/question-body/question-rating/question-rating.component';
+import { AnswerRatingComponent } from './questions/question/answers-list/answer-rating/answer-rating.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { AnswerCommentsComponent } from './questions/question/answers-list/answe
 		AnswersListComponent,
 		AnswerFormComponent,
 		QuestionCommentsComponent,
-		AnswerCommentsComponent
+		AnswerCommentsComponent,
+		QuestionRatingComponent,
+		AnswerRatingComponent
 	],
 	providers: [
 		CommentsService,

@@ -1,0 +1,24 @@
+@import "~vars.scss";
+
+.wrap{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  .up{
+    color: $accent2-color;
+    cursor: pointer;
+  }
+
+  .rating{
+    font-size: 150%;
+    fonr-weight: bold;
+  }
+
+  .down{
+    color: $accent2-color;
+    cursor: pointer;
+  }
+}

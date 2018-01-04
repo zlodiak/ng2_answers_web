@@ -27,7 +27,7 @@ export class QuestionCommentsComponent implements OnInit, OnDestroy {
   private subQuestionCommentsService: Subscription;
   private subGetAuthorName: Subscription;
 
-  @Input() questionId: string;
+  @Input() questionId: number;
 
   constructor(private dateService: DateService,
               private matDialog: MatDialog,
