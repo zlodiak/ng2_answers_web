@@ -1,0 +1,15 @@
+@import "~vars.scss";
+
+.line{
+  padding-bottom: $basic-measure;
+
+  .info{
+    width: 100%;
+  }
+
+  .icon{
+    display: inline-block;
+    max-width: 100px;
+    padding-bottom: $basic-measure;
+  }
+}

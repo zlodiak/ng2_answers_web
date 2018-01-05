@@ -1,6 +1,10 @@
 <div class="wrap">
   <h2 class="h2">{{ user?.name }}</h2>
 
+  <div class="line" *ngIf="user?.icon">
+    <img [src]="user?.icon" alt="" class="icon">
+  </div>
+
   <div class="lines">
     <div class="line">
       <div class="label">email</div>
@@ -17,18 +21,13 @@
       <div class="val">{{ user?.city }}</div>
     </div>
 
-    <div class="line" *ngIf="user?.icon">
-      <div class="label">Иконка</div>
-      <div class="val">{{ user?.icon }}</div>
-    </div>
-
     <div class="line" *ngIf="user?.createdDateUnix">
       <div class="label">Дата регистрации</div>
-      <div class="val">{{ user?.createdDateUnix }}</div>
+      <div class="val">{{ dateService.fromUnixToHuman(user?.createdDateUnix) }}</div>
     </div>
 
-    <div class="line" *ngIf="user?.id === authUser?.id">
-      <button class="btn btn-common" type="button" mat-button>
+    <div class="line" *ngIf="authUser && user?.id === authUser?.id">
+      <button class="btn btn-common" type="button" mat-button (click)="toEditProfile()">
         Редактировать
       </button>
     </div>

@@ -6,6 +6,12 @@
 
   }
 
+  .icon{
+    display: inline-block;
+    max-width: 100px;
+    padding-bottom: $basic-measure;
+  }
+
   .lines{
 
     .line{
@@ -27,6 +33,8 @@
       .val{
 
       }
+
+
     }
   }
 }

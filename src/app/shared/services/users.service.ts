@@ -27,4 +27,8 @@ export class UsersService {
     return this.httpClient.get(Config.host + 'users');
   }
 
+  setUser(id: string, user: User): Observable<any> {
+    return this.httpClient.put(Config.host + `users/${id}`, user);
+  }
+
 }

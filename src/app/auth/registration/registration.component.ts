@@ -41,7 +41,8 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     const user: User = {
       id: this.form.value.email,
       password: this.hashService.generate(this.form.value.password),
-      name: this.form.value.name
+      name: this.form.value.name,
+      createdDateUnix: '' + (Date.now() / 1000)
     };
 
     this.subCreateUser = this.usersService.createUser(user).subscribe((resp) => {
