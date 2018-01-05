@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 
 import { QuestionsService } from '../../shared/services/questions.service';
-import { DateService } from '../../shared/services/date.service';
+import { DateService } from '../../../shared/services/date.service';
 import { Question } from '../../shared/interfaces/question';
 import { Tag } from '../../shared/interfaces/tag';
 import { TagsService } from '../../shared/services/tags.service';

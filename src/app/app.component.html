@@ -12,7 +12,7 @@
           <div class="drop-menu" (click)="toggleMenu()" [ngClass]="{'open': isOpen}">
             <div class="title">{{ authorizedUserName }}</div>
             <div class="drop-area">
-              <div class="link">Профиль</div>
+              <div class="link" (click)="toProfile()">Профиль</div>
               <div class="link" (click)="logout()">Выйти</div>
             </div>
           </div>

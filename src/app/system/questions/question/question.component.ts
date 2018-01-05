@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Rx';
 
 
-import { GlobalVarsService } from '../../shared/services/global-vars.service';
+import { GlobalVarsService } from '../../../shared/services/global-vars.service';
 import { User } from '../../../shared/interfaces/user';
 import { AnswersService } from '../../shared/services/answers.service';
 import { QuestionsService } from '../../shared/services/questions.service';

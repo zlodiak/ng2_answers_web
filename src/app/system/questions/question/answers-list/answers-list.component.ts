@@ -6,8 +6,8 @@ import { Observable } from 'rxjs/Rx';
 import { Answer } from '../../../shared/interfaces/answer';
 
 import { AnswersService } from '../../../shared/services/answers.service';
-import { DateService } from '../../../shared/services/date.service';
-import { UsersService } from '../../../shared/services/users.service';
+import { DateService } from '../../../../shared/services/date.service';
+import { UsersService } from '../../../../shared/services/users.service';
 import { QuestionsService } from '../../../shared/services/questions.service';
 
 

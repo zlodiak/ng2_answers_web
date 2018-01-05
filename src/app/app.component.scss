@@ -89,13 +89,13 @@
 
 		.footer-inner{
 			color: #fff;
-			height: 28px;
+			height: 60px;
 			overflow: hidden;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: flex-start;
 			align-items: center;
-			padding: $basic-measure;
+			padding: 0 $basic-measure;
 		}
 	}
 }

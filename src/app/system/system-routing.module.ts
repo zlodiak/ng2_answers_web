@@ -20,7 +20,7 @@ const routes: Routes = [
 	{path: 'tags', component: TagsComponent},
 	{path: 'tag-questions/:tag_id', component: TagQuestionsComponent},
 	{path: 'users', component: UsersComponent},
-	{path: 'user', component: UserComponent},
+	{path: 'user/:user_id', component: UserComponent},
 	{path: 'user-edit', component: UserEditComponent}
 ];
 

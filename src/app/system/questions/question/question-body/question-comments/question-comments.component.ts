@@ -7,9 +7,9 @@ import { QuestionComment } from '../../../../shared/interfaces/question-comment'
 import { User } from '../../../../../shared/interfaces/user';
 
 import { CommentsService } from '../../../../shared/services/comments.service';
-import { DateService } from '../../../../shared/services/date.service';
-import { UsersService } from '../../../../shared/services/users.service';
-import { GlobalVarsService } from '../../../../shared/services/global-vars.service';
+import { DateService } from '../../../../../shared/services/date.service';
+import { UsersService } from '../../../../../shared/services/users.service';
+import { GlobalVarsService } from '../../../../../shared/services/global-vars.service';
 
 @Component({
   selector: 'aw-question-comments',

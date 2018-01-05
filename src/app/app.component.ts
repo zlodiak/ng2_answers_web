@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 
 import { InfoDialogComponent } from './shared/dialogs/info-dialog/info-dialog.component';
 
-import { GlobalVarsService } from './system/shared/services/global-vars.service';
+import { GlobalVarsService } from './shared/services/global-vars.service';
 import { User } from './shared/interfaces/user';
 import { Config } from './config';
 
@@ -64,6 +64,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private toggleMenu(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  private toProfile(): void {
+    this.router.navigate(['/user/' + this.authorizedUserId]);
   }
 
 }

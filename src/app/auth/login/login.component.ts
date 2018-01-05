@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { MatDialog } from '@angular/material';
 
-import { UsersService } from '../../system/shared/services/users.service';
-import { GlobalVarsService } from '../../system/shared/services/global-vars.service';
+import { UsersService } from '../../shared/services/users.service';
+import { GlobalVarsService } from '../../shared/services/global-vars.service';
 import { HashService } from '../../shared/services/hash.service';
 
 import { InfoDialogComponent } from '../../shared/dialogs/info-dialog/info-dialog.component';

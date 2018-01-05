@@ -1,3 +1,5 @@
-<p>
-  users works!
-</p>
+<div class="wrap">
+  <a class="user" *ngFor="let user of users" [routerLink]="'/user/' + user.id">
+    {{ user.name }}
+  </a>
+</div>

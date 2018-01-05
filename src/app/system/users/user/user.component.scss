@@ -1,0 +1,32 @@
+@import "~vars.scss";
+
+.wrap{
+
+  .h2{
+
+  }
+
+  .lines{
+
+    .line{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-bottom: $basic-measure;
+
+      .label{
+        font-weight: bold;
+
+        &:after{
+          content: ':';
+          margin-right: $basic-measure / 2;
+        }
+      }
+
+      .val{
+
+      }
+    }
+  }
+}

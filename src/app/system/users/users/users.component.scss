@@ -1,0 +1,11 @@
+@import "~vars.scss";
+
+.wrap{
+
+  .user{
+    display: inline-block;
+    margin: $basic-measure;
+    margin-left: 0;
+    color: #000;
+  }
+}

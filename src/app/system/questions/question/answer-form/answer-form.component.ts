@@ -8,7 +8,7 @@ import { InfoDialogComponent } from '../../../../shared/dialogs/info-dialog/info
 
 import { Answer } from '../../../shared/interfaces/answer';
 import { AnswersService } from '../../../shared/services/answers.service';
-import { GlobalVarsService } from '../../../shared/services/global-vars.service';
+import { GlobalVarsService } from '../../../../shared/services/global-vars.service';
 
 
 @Component({
