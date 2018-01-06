@@ -10,11 +10,11 @@ import { QuestionsService } from './shared/services/questions.service';
 import { TagsService } from './shared/services/tags.service';
 import { AnswersService } from './shared/services/answers.service';
 import { CommentsService } from './shared/services/comments.service';
+import { AuthUserGuardService } from './shared/services/auth-user-guard.service';
 
 import { SystemComponent } from './system.component';
 import { QuestionsComponent } from './questions/questions/questions.component';
 import { QuestionCreateComponent } from './questions/question-create/question-create.component';
-import { QuestionEditComponent } from './questions/question-edit/question-edit.component';
 import { QuestionComponent } from './questions/question/question.component';
 import { TagsComponent } from './tags/tags/tags.component';
 import { TagQuestionsComponent } from './tags/tag-questions/tag-questions.component';
@@ -42,7 +42,6 @@ import { AnswerRatingComponent } from './questions/question/answers-list/answer-
 		SystemComponent,
 		QuestionsComponent,
 		QuestionCreateComponent,
-		QuestionEditComponent,
 		QuestionComponent,
 		TagsComponent,
 		TagQuestionsComponent,
@@ -58,6 +57,7 @@ import { AnswerRatingComponent } from './questions/question/answers-list/answer-
 		AnswerRatingComponent
 	],
 	providers: [
+		AuthUserGuardService,
 		CommentsService,
     AnswersService,
     TagsService,
